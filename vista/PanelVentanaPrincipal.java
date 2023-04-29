@@ -25,7 +25,7 @@ public class PanelVentanaPrincipal extends JPanel {
     public PanelVentanaPrincipal() {
 
         setLayout(null);
-        setBackground(Color.decode("#00EC00"));
+        setBackground(Color.GREEN);
 
         // Creación y adición de la imagen al panel
         iImagen = new ImageIcon(getClass().getResource("/vista/uis.png"));
@@ -33,57 +33,57 @@ public class PanelVentanaPrincipal extends JPanel {
         lbImagen.setBounds(10, 10, 170, 100);
         this.add(lbImagen);
 
-        //Crear y agregar usuario
+        // Crear y agregar usuario
         lbIUsuario = new JLabel("Usuario");
-        lbIUsuario.setBounds(370, 350, 180,60);
+        lbIUsuario.setBounds(370, 350, 180, 60);
         this.add(lbIUsuario);
 
         tfUsuario = new JTextField();
-        tfUsuario.setBounds(320,400,140, 30);
+        tfUsuario.setBounds(320, 400, 140, 30);
         this.add(tfUsuario);
-        
 
-        //Crear y agregar contraseña
+        // Crear y agregar contraseña
         lbContraseña = new JLabel("Contraseña");
-        lbContraseña.setBounds(360, 430, 180,60);
+        lbContraseña.setBounds(360, 430, 180, 60);
         this.add(lbContraseña);
 
         tfContraseña = new JTextField();
-        tfContraseña.setBounds(320,480,140, 30);
+        tfContraseña.setBounds(320, 480, 140, 30);
         this.add(tfContraseña);
 
         btSalir = new JButton("Salir");
-        btSalir.setBounds(330,600,120,25);
+        btSalir.setBounds(330, 600, 120, 25);
         btSalir.setActionCommand("salir");
         this.add(btSalir);
 
         btIngresar = new JButton("Ingresar");
-        btIngresar.setBounds(330,550,120,25);
+        btIngresar.setBounds(330, 550, 120, 25);
         btIngresar.setActionCommand("ingresar");
         this.add(btIngresar);
 
-        //Borde
+        // Borde
         TitledBorder borde = BorderFactory.createTitledBorder("Bienbenido");
         borde.setTitleColor(Color.BLACK);
         setBorder(borde);
 
     }
 
-    //pintar panel
+    // pintar panel
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.setColor(Color.BLUE); // color de la línea diagonal
+        g.setColor(Color.decode("#009933")); // color de la línea diagonal
 
-        for(int i = 0; i <= 780; i = i +1){
+        for (int i = 0; i <= 780; i = i + 1) {
 
-        // dibuja muchas línea diagonal por la mitad del panel
-        g.drawLine(i, getHeight(), getWidth() / 2, getHeight() / 2); 
-        g.drawLine(i+1, getHeight() , getWidth()/2 , getHeight()/2);
-        i=i+1;
+            // dibuja muchas línea diagonal por la mitad del panel
+            g.drawLine(i, getHeight(), getWidth() / 2, getHeight() / 2);
+            g.drawLine(i + 1, getHeight(), getWidth() / 2, getHeight() / 2);
+            i = i + 1;
         }
-        
+
     }
-    public void agregarEscuchadores(ActionListener listener){
+
+    public void agregarEscuchadores(ActionListener listener) {
         btIngresar.addActionListener(listener);
         btSalir.addActionListener(listener);
     }
