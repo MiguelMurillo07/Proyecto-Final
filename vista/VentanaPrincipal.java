@@ -1,44 +1,30 @@
 package vista;
 
 import javax.swing.JFrame;
+import java.awt.Color;
 
 public class VentanaPrincipal extends JFrame
 {
-
-    //-------------
-    //Atributos
-    //-------------
-    public VentanaAgregar miVentanaAgregar;
-    public VentanaBorrar miVentanaBorrar;
-    public VentanaModificar mientanaModificar;
-    public VentanaOpciones miVentanaOpciones;
-    public VentanaSeleccionar miVentanaSeleccionar;
-    public VentanaVer miVentanaVer;
-
-    //---------
-    //Métodos
-    //---------
-
-    //Constructor
+    
+    public PanelVentanaPrincipal mPanelVentanaPrincipal;
 
     public VentanaPrincipal()
-    {   
-        this.setLayout(null));
-        this.setBackground(Color.decode("#00ff00"));
+    {
+        setLayout(null);
+        setBackground(Color.GREEN);
+
+        
+        mPanelVentanaPrincipal = new PanelVentanaPrincipal();
+        mPanelVentanaPrincipal.setBounds(0, 0, 785, 660);
+        add(mPanelVentanaPrincipal);
+
+        //Caracteristicas de la ventana
+        setTitle("contras jijiji");
+        setSize(800,700);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setResizable(false);
+        setVisible(true);
+
     }
-
-    // Creación Panel Agregar
-    miVentanaAgregar = new VentanaAgregar();
-    //miVentanaAgregar.setbo
-
-
-    this.setTitle("Always Safe");
-    this.setSize(600,600);
-    //this.setLocation(100,500);
-    this.setLocationRelativeTo(null);
-    this.setResizable(false);
-    this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-    this.setVisible(true);
-    
-
 }
