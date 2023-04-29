@@ -52,10 +52,15 @@ public class PanelVentanaPrincipal extends JPanel {
         tfContraseña.setBounds(320,480,140, 30);
         this.add(tfContraseña);
 
-        btSalir = new JButton("salir");
-        btSalir.setBounds(90,135,120,25);
+        btSalir = new JButton("Salir");
+        btSalir.setBounds(330,600,120,25);
         btSalir.setActionCommand("salir");
         this.add(btSalir);
+
+        btIngresar = new JButton("Ingresar");
+        btIngresar.setBounds(330,550,120,25);
+        btIngresar.setActionCommand("ingresar");
+        this.add(btIngresar);
 
         //Borde
         TitledBorder borde = BorderFactory.createTitledBorder("Bienbenido");
