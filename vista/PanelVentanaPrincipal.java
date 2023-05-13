@@ -25,7 +25,7 @@ public class PanelVentanaPrincipal extends JPanel {
     public PanelVentanaPrincipal() {
 
         setLayout(null);
-        setBackground(Color.GREEN);
+        setBackground(Color.decode("#003b00"));
 
         // Creación y adición de la imagen al panel
         iImagen = new ImageIcon(getClass().getResource("/vista/uis.png"));
@@ -68,20 +68,25 @@ public class PanelVentanaPrincipal extends JPanel {
 
     }
 
-    // pintar panel
-    public void paintComponent(Graphics g) {
+     // pintar panel
+     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.setColor(Color.decode("#009933")); // color de la línea diagonal
 
         for (int i = 0; i <= 780; i = i + 1) {
 
             // dibuja muchas línea diagonal por la mitad del panel
-            g.drawLine(i, getHeight(), getWidth() / 2, getHeight() / 2);
-            g.drawLine(i + 1, getHeight(), getWidth() / 2, getHeight() / 2);
+            g.drawLine(i, getHeight(), getWidth() , getHeight() / 130);
+            g.drawLine(i + 1, getHeight(), getWidth() , getHeight() / 130);
             i = i + 1;
         }
 
     }
+
+
+    
+
+
 
     public void agregarEscuchadores(ActionListener listener) {
         btIngresar.addActionListener(listener);
