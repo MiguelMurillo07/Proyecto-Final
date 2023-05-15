@@ -19,7 +19,7 @@ public class VentanaPrincipal extends JFrame
         add(mPanelVentanaPrincipal);
 
         //Caracteristicas de la ventana
-        setTitle("contras jijiji");
+        setTitle("Always Safe");
         setSize(800,700);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);

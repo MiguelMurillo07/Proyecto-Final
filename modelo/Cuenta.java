@@ -13,10 +13,28 @@ public class Cuenta
     //Métodos
     //----------
 
-    public Cuenta(String pUser, String pPass)
+    public Cuenta()
+    {
+        this.user = "";
+        this.pass = "";
+        this.pag = "";
+    }
+
+    public Cuenta(String pUser, String pPass, String pPag)
     {
         this.user = pUser;
         this.pass = pPass;
+        this.pag = pPag;
+    }
+
+    public String getPag()
+    {
+        return pag;
+    }
+
+    public void setPag(String pPag)
+    {
+        this.pag = pPag;
     }
 
     public String getUser()

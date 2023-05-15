@@ -62,7 +62,7 @@ public class PanelVentanaPrincipal extends JPanel {
         this.add(btIngresar);
 
         // Borde
-        TitledBorder borde = BorderFactory.createTitledBorder("Bienbenido");
+        TitledBorder borde = BorderFactory.createTitledBorder("Bienvenido");
         borde.setTitleColor(Color.BLACK);
         setBorder(borde);
 
@@ -84,11 +84,7 @@ public class PanelVentanaPrincipal extends JPanel {
     }
 
 
-    
-
-
-
-    public void agregarEscuchadores(ActionListener listener) {
+    public void agregarOyentes(ActionListener listener) {
         btIngresar.addActionListener(listener);
         btSalir.addActionListener(listener);
     }

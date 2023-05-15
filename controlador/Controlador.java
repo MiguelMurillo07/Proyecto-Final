@@ -4,20 +4,26 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import vista.VentanaPrincipal;
+import vista.VentanaModificar;
 
 public class Controlador implements ActionListener{
 
-    public Controlador(VentanaPrincipal vp){
+    private VentanaPrincipal vP;
 
-        this.vP = vP;
+    public Controlador(VentanaPrincipal vp)
+    {
 
-        @Override
-    public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
-        String event = e.getActionCommand();
+        this.vP = vp;
+        this.vP.mPanelVentanaPrincipal.agregarOyentes(this);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        
+        String event = ae.getActionCommand();
 
 
-        if(event == "salir")
+        if(event.equals("salir"))
         {
             System.exit(0);
         }  
