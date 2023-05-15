@@ -21,6 +21,7 @@ public class PanelVentanaPrincipal extends JPanel {
     private JTextField tfContraseña;
     private JButton btIngresar;
     private JButton btSalir;
+    private JButton btBorrar;
 
     public PanelVentanaPrincipal() {
 
@@ -52,7 +53,7 @@ public class PanelVentanaPrincipal extends JPanel {
         this.add(tfContraseña);
 
         btSalir = new JButton("Salir");
-        btSalir.setBounds(330, 600, 120, 25);
+        btSalir.setBounds(230, 600, 120, 25);
         btSalir.setActionCommand("salir");
         this.add(btSalir);
 
@@ -60,6 +61,11 @@ public class PanelVentanaPrincipal extends JPanel {
         btIngresar.setBounds(330, 550, 120, 25);
         btIngresar.setActionCommand("ingresar");
         this.add(btIngresar);
+
+        btBorrar = new JButton("Borrar");
+        btBorrar.setBounds(430, 600, 120, 25);
+        btBorrar.setActionCommand("borrar");
+        this.add(btBorrar);
 
         // Borde
         TitledBorder borde = BorderFactory.createTitledBorder("Bienvenido");
@@ -83,9 +89,16 @@ public class PanelVentanaPrincipal extends JPanel {
 
     }
 
+    public void borrar()
+    {
+        tfUsuario.setText("");
+        tfContraseña.setText("");
+    }
 
-    public void agregarOyentes(ActionListener listener) {
+    public void agregarOyentes(ActionListener listener) 
+    {
         btIngresar.addActionListener(listener);
         btSalir.addActionListener(listener);
+        btBorrar.addActionListener(listener);
     }
 }

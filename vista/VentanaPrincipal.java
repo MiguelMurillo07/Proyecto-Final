@@ -6,7 +6,7 @@ import java.awt.Color;
 public class VentanaPrincipal extends JFrame
 {
     
-    public PanelVentanaPrincipal mPanelVentanaPrincipal;
+    public PanelVentanaPrincipal miPanelVentanaPrincipal;
 
     public VentanaPrincipal()
     {
@@ -14,9 +14,9 @@ public class VentanaPrincipal extends JFrame
         setBackground(Color.GREEN);
 
         
-        mPanelVentanaPrincipal = new PanelVentanaPrincipal();
-        mPanelVentanaPrincipal.setBounds(0, 0, 785, 660);
-        add(mPanelVentanaPrincipal);
+        miPanelVentanaPrincipal = new PanelVentanaPrincipal();
+        miPanelVentanaPrincipal.setBounds(0, 0, 785, 660);
+        add(miPanelVentanaPrincipal);
 
         //Caracteristicas de la ventana
         setTitle("Always Safe");

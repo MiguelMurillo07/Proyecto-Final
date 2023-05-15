@@ -7,7 +7,7 @@ import java.awt.Color;
 public class VentanaModificar extends JFrame
 {
 
-    public PanelVentanaModificar mPanelVentanaModificar;
+    public PanelVentanaModificar miPanelVentanaModificar;
 
     public VentanaModificar()
     {
@@ -15,9 +15,9 @@ public class VentanaModificar extends JFrame
         setLayout(null);
         setBackground(Color.GREEN);
 
-        mPanelVentanaModificar = new PanelVentanaModificar();
-        mPanelVentanaModificar.setBounds(0, 0, 785, 660);
-        add(mPanelVentanaModificar);
+        miPanelVentanaModificar = new PanelVentanaModificar();
+        miPanelVentanaModificar.setBounds(0, 0, 785, 660);
+        add(miPanelVentanaModificar);
 
         //Caracteristicas de la ventana
         setTitle("Ventana Modificar");
