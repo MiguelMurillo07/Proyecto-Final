@@ -2,6 +2,7 @@ package vista;
 
 import javax.swing.JPanel;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionListener;
 import javax.swing.border.TitledBorder;
@@ -22,6 +23,10 @@ public class PanelVentanaPrincipal extends JPanel {
     private JButton btIngresar;
     private JButton btSalir;
     private JButton btBorrar;
+    private JLabel lbWelcome;
+    private JLabel lbCredenciales;
+    private JLabel lbAdm;
+    private JLabel lbAdm2;
 
     public PanelVentanaPrincipal() {
 
@@ -51,6 +56,30 @@ public class PanelVentanaPrincipal extends JPanel {
         tfContraseña = new JTextField();
         tfContraseña.setBounds(320, 480, 140, 30);
         this.add(tfContraseña);
+
+        lbWelcome = new JLabel("Bienvenido");
+        lbWelcome.setBounds(320, 220, 180, 60);
+        lbWelcome.setFont(new Font("Arial", Font.BOLD, 25));
+        lbWelcome.setForeground(new Color(255,0,0));
+        this.add(lbWelcome);
+
+        lbCredenciales = new JLabel("Ingrese sus credenciales");
+        lbCredenciales.setBounds(280, 290, 280, 60);
+        lbCredenciales.setFont(new Font("Arial", Font.BOLD, 18));
+        lbCredenciales.setForeground(new Color(255,255,255));
+        this.add(lbCredenciales);
+
+        lbAdm = new JLabel("Administración de Credenciales");
+        lbAdm.setBounds(230, 140, 680, 60);
+        lbAdm.setFont(new Font("Arial", Font.BOLD, 21));
+        lbAdm.setForeground(new Color(0,0,0));
+        this.add(lbAdm);
+
+        lbAdm2 = new JLabel("para Páginas Web");
+        lbAdm2.setBounds(310, 170, 680, 60);
+        lbAdm2.setFont(new Font("Arial", Font.BOLD, 21));
+        lbAdm2.setForeground(new Color(0,0,0));  
+        this.add(lbAdm2);
 
         btSalir = new JButton("Salir");
         btSalir.setBounds(230, 600, 120, 25);
