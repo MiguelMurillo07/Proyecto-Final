@@ -1,6 +1,8 @@
 package vista;
 
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -52,8 +54,8 @@ public class PanelVentanaPrincipal extends JPanel {
         lbContraseña = new JLabel("Contraseña");
         lbContraseña.setBounds(360, 430, 180, 60);
         this.add(lbContraseña);
-
-        tfContraseña = new JTextField();
+        
+        tfContraseña = new JPasswordField();
         tfContraseña.setBounds(320, 480, 140, 30);
         this.add(tfContraseña);
 

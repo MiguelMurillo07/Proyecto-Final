@@ -29,6 +29,7 @@ public class Controlador implements ActionListener{
             // Crea una nueva instancia de la ventana secundaria y la hace visible
             VentanaOpciones ventanaSecundaria = new VentanaOpciones();
             ventanaSecundaria.setVisible(true);
+            vP.setVisible(false);
         }
 
         if(event.equals("salir"))
