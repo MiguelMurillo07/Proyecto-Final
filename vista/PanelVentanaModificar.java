@@ -49,4 +49,9 @@ public class PanelVentanaModificar extends JPanel{
 
     }
 
+    public JComboBox<String> getCbOperadores() {
+        return cbOperadores;
+    }
+    
+
 }
