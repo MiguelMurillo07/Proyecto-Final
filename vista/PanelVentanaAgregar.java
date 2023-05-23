@@ -107,7 +107,7 @@ public class PanelVentanaAgregar extends JPanel
     
     
     }
-    
+
         public String getPagina()
         {
             return tfPagina.getText();
