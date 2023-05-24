@@ -116,7 +116,7 @@ public class PanelVentanaPrincipal extends JPanel {
             // dibuja muchas línea diagonal por la mitad del panel
             g.drawLine(i, getHeight(), getWidth() , getHeight() / 130);
             g.drawLine(i + 1, getHeight(), getWidth() , getHeight() / 130);
-            i = i + 1;
+           
         }
 
     }

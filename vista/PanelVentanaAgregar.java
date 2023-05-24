@@ -94,17 +94,17 @@ public class PanelVentanaAgregar extends JPanel
     }
     
     // pintar panel
-        /**public void paintComponent(Graphics g) 
+        public void paintComponent(Graphics g) 
         {
             super.paintComponent(g);
             g.setColor(Color.decode("#009933")); // color de la línea diagonal
 
-            for (int i = 0; i <= 780; i = i + 1) 
+            for (int i = 0; i <= 780; i ++) 
             {
                 // dibuja muchas línea diagonal por la mitad del panel
                 g.drawLine(i, getHeight(), getWidth() , getHeight() / 130);
             }
-        }**/
+        }
 
     public String getPagina()
     {
