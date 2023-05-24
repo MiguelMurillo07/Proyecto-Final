@@ -26,6 +26,7 @@ public class PanelVentanaOpciones extends JPanel
         // Crear y agregar botones
         btAgregar = new JButton("Agregar");
         btAgregar.setBounds(250, 100, 100, 40);
+        btAgregar.setActionCommand("agregar");
         this.add(btAgregar);
 
         btModificar = new JButton("Modificar");

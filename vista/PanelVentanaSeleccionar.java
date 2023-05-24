@@ -66,7 +66,7 @@ public class PanelVentanaSeleccionar extends JPanel
     }
 
     // pintar panel
-    public void paintComponent(Graphics g) {
+    /**public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.setColor(Color.decode("#009933")); // color de la línea diagonal
 
@@ -76,7 +76,7 @@ public class PanelVentanaSeleccionar extends JPanel
             g.drawLine(i, getHeight(), getWidth(), getHeight() / 130);
         }
 
-    }
+    }**/
     
         public String getOperadores() {
             return (String) cbOperadores.getSelectedItem();

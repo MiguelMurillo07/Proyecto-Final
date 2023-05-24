@@ -6,7 +6,6 @@ import javax.swing.JFrame;
 
 public class VentanaAgregar extends JFrame
 {
-
     public PanelVentanaAgregar miPanelVentanaAgregar;
     
     public VentanaAgregar()
@@ -24,6 +23,6 @@ public class VentanaAgregar extends JFrame
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
-        setVisible(true);
+        setVisible(false);
     }
 }

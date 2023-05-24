@@ -98,7 +98,7 @@ public class PanelVentanaVer extends JPanel {
             g.drawLine(i, getHeight(), getWidth(), getHeight() / 130);
         }
 
-    }
+
     
         public JButton getBtRegresar() {
             return btRegresar;
@@ -131,7 +131,7 @@ public class PanelVentanaVer extends JPanel {
         public void setTfContraseña(JTextField tfContraseña) {
             this.tfContraseña = tfContraseña;
         }
-
-
-
 }
+
+
+

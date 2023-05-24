@@ -20,11 +20,11 @@ public class VentanaOpciones extends JFrame
 
         //Caracteristicas de la ventana
         setTitle("Opciones Disponibles");
-        setSize(600,500);
+        setSize(800,700);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
-        setVisible(true);
+        setVisible(false);
 
     }
 }

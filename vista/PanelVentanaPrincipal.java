@@ -106,7 +106,8 @@ public class PanelVentanaPrincipal extends JPanel {
     }
 
      // pintar panel
-     public void paintComponent(Graphics g) {
+     public void paintComponent(Graphics g) 
+     {
         super.paintComponent(g);
         g.setColor(Color.decode("#009933")); // color de la línea diagonal
 
@@ -115,7 +116,7 @@ public class PanelVentanaPrincipal extends JPanel {
             // dibuja muchas línea diagonal por la mitad del panel
             g.drawLine(i, getHeight(), getWidth() , getHeight() / 130);
             g.drawLine(i + 1, getHeight(), getWidth() , getHeight() / 130);
-            i = i + 1;
+           
         }
 
     }

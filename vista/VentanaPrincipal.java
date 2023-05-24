@@ -5,7 +5,7 @@ import java.awt.Color;
 
 public class VentanaPrincipal extends JFrame
 {
-    
+    public VentanaAgregar miVentanaAgregar;
     public PanelVentanaPrincipal miPanelVentanaPrincipal;
 
     public VentanaPrincipal()
@@ -26,5 +26,11 @@ public class VentanaPrincipal extends JFrame
         setResizable(false);
         setVisible(true);
 
+    }
+
+    public void crearVentanaAgregar()
+    {
+        miVentanaAgregar = new VentanaAgregar();
+        miVentanaAgregar.setVisible(true);
     }
 }
