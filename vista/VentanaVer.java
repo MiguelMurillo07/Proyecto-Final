@@ -4,6 +4,8 @@ import java.awt.Color;
 
 import javax.swing.JFrame;
 
+import controlador.Controlador;
+
 public class VentanaVer extends JFrame
 {
     public PanelVentanaVer miPanelVentanaVer;
@@ -25,5 +27,7 @@ public class VentanaVer extends JFrame
         setVisible(true);
 
 
+    }
+    public void agregarOyentesBoton(Controlador controlador) {
     }
 }

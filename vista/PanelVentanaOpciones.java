@@ -31,18 +31,22 @@ public class PanelVentanaOpciones extends JPanel
 
         btModificar = new JButton("Modificar");
         btModificar.setBounds(250, 160, 100, 40);
+        btModificar.setActionCommand("modificar");
         this.add(btModificar);
 
         btBorrar = new JButton("Borrar");
         btBorrar.setBounds(250, 280, 100, 40);
+        btBorrar.setActionCommand("borrarDatos");
         this.add(btBorrar);
 
         btVisualizar = new JButton("Visualizar");
         btVisualizar.setBounds(250, 220, 100, 40);
+        btVisualizar.setActionCommand("visualizar");
         this.add(btVisualizar);
 
         btSalir = new JButton("Salir");
         btSalir.setBounds(250, 400, 100, 20);
+        btSalir.setActionCommand("salir1");
         this.add(btSalir);
 
         // Crear y agregar etiqueta

@@ -2,6 +2,8 @@ package vista;
 
 import javax.swing.JFrame;
 
+import controlador.Controlador;
+
 public class VentanaBorrar extends JFrame
 {
 
@@ -20,5 +22,8 @@ public class VentanaBorrar extends JFrame
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
         setVisible(true);
+    }
+
+    public void agregarOyentesBoton(Controlador controlador) {
     }
 }
