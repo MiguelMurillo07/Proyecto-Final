@@ -24,6 +24,6 @@ public class VentanaSeleccionar extends JFrame
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
-        setVisible(true);
+        setVisible(false);
     }
 }

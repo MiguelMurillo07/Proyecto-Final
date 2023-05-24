@@ -15,9 +15,7 @@ public class PanelVentanaBorrar extends JPanel
 {
     private JLabel lbImagen;
     private ImageIcon iImagen;
-
     private JLabel lbBorrar;
-
     private JLabel lbPagina;
     private JLabel lbUsuario;
     private JLabel lbContraseña;
@@ -26,7 +24,6 @@ public class PanelVentanaBorrar extends JPanel
     private JTextField tfContraseña;
     private JButton btRegresar;
     private JButton btBorrar;
-
 
     public PanelVentanaBorrar()
     {
@@ -91,7 +88,7 @@ public class PanelVentanaBorrar extends JPanel
         setBorder(borde);
     }
 
-    // pintar panel
+    /**  pintar panel
     public void paintComponent(Graphics g) 
     {
         super.paintComponent(g);
@@ -102,8 +99,7 @@ public class PanelVentanaBorrar extends JPanel
             // Dibuja una línea diagonal por la mitad del panel en cada iteración
             g.drawLine(i, getHeight(), getWidth(), getHeight() / 130);
         }
-
-    }
+    }**/
 // Borrar credencial
     public void borrarCredencial()
     {
