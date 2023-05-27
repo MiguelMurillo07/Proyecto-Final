@@ -2,6 +2,9 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 
 import javax.swing.JOptionPane;
 
@@ -35,13 +38,15 @@ public class Controlador implements ActionListener{
         
         String event = ae.getActionCommand();
 
-        if (event.equals("ingresar")) {
+        if (event.equals("ingresar")) 
+        {
             // Crea una nueva instancia de la ventana secundaria y la hace visible
             vO.setVisible(true);
             vP.setVisible(false);
         }
 
-        if (event.equals("agregar")) {
+        if (event.equals("agregar")) 
+        {
             // Crea una nueva instancia de la ventana agregar y la hace visible
             vO.crearVentanaAgregar();
             this.vO.miVentanaAgregar.agregarOyentesBoton(this);
@@ -52,6 +57,12 @@ public class Controlador implements ActionListener{
         {
             JOptionPane.showMessageDialog(vP, "T cuidas papa");
             System.exit(0);
+        }
+
+        if (event.equals("Regresardeagregar"))
+        {
+            this.vA.setVisible(false);
+            this.vP.setVisible(true);
         }
 
 
@@ -71,6 +82,32 @@ public class Controlador implements ActionListener{
         {
             vO.crearVentanaBorrar();
             this.vO.miVentanaBorrar.agregarOyentesBoton(this);
+        }
+
+        if (event.equals("guardarcredencial"))
+        {
+            try {
+                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/proyecto", "root", "");
+                PreparedStatement pst = cn.prepareStatement("insert into datos values (?,?,?,?)");
+
+                pst.setString(1, "0");
+                pst.setString(2, vA.miPanelVentanaAgregar.getPagina().trim());
+                pst.setString(3, vA.miPanelVentanaAgregar.getUsuario().trim());
+                pst.setString(4, vA.miPanelVentanaAgregar.getContraseña().trim());
+                pst.executeUpdate();
+
+                vA.miPanelVentanaAgregar.borrar();
+
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
+
+        if(event.equals("Regresardeagregar"))
+        {
+            vA.setVisible(false);
         }
 
         if(event.equals("salir"))

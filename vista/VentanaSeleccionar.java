@@ -8,9 +8,8 @@ public class VentanaSeleccionar extends JFrame
 {
     public PanelVentanaSeleccionar miPanelVentanaSeleccionar;
 
-    public VentanaSeleccionar()
+    public VentanaSeleccionar() 
     {
-
         setLayout(null);
         setBackground(Color.GREEN);
 
@@ -18,9 +17,9 @@ public class VentanaSeleccionar extends JFrame
         miPanelVentanaSeleccionar.setBounds(0, 0, 785, 660);
         add(miPanelVentanaSeleccionar);
 
-        //Caracteristicas de la ventana
+        // Caracteristicas de la ventana
         setTitle("Ventana Consultar");
-        setSize(800,700);
+        setSize(800, 700);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);

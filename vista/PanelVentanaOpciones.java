@@ -13,6 +13,9 @@ import javax.swing.JPanel;
 
 public class PanelVentanaOpciones extends JPanel
 {
+    private JLabel lbImagen;
+    private ImageIcon iImagen;
+
     private JButton btAgregar;
     private JButton btModificar;
     private JButton btBorrar;
@@ -63,8 +66,8 @@ public class PanelVentanaOpciones extends JPanel
 
         // Crear y agregar etiqueta
         lbOpcion = new JLabel("Seleccione una opción:");
-        lbOpcion.setBounds(245, 90, 480, 60);
-        lbOpcion.setFont(new Font("Arial", Font.BOLD, 30));
+        lbOpcion.setBounds(210, 50, 480, 60);
+        lbOpcion.setFont(new Font("Arial", Font.BOLD, 40));
         lbOpcion.setForeground(new Color(0,0,0));
         this.add(lbOpcion);
 

@@ -12,8 +12,8 @@ import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 
-public class PanelVentanaVer extends JPanel {
-
+public class PanelVentanaVer extends JPanel 
+{
     private JLabel lbImagen;
     private ImageIcon iImagen;
 
@@ -27,8 +27,8 @@ public class PanelVentanaVer extends JPanel {
     private JTextField tfContraseña;
     private JButton btRegresar;
 
-    public PanelVentanaVer() {
-
+    public PanelVentanaVer() 
+    {
         setLayout(null);
         setBackground(Color.GREEN);
 
@@ -53,7 +53,6 @@ public class PanelVentanaVer extends JPanel {
         tfPagina = new JTextField(null);
         tfPagina.setBounds(280, 200, 250, 30);
         add(tfPagina);
-
         
         lbUsuario = new JLabel("Usuario");
         lbUsuario.setBounds(375,260,300,30);
@@ -64,7 +63,6 @@ public class PanelVentanaVer extends JPanel {
         tfUsuario.setBounds(280, 290, 250, 30);
         add(tfUsuario);
 
-        
         lbContraseña = new JLabel("Contraseña");
         lbContraseña.setBounds(360,350,300,30);
         lbContraseña.setFont(new Font("Arial", Font.BOLD, 17));
@@ -73,8 +71,7 @@ public class PanelVentanaVer extends JPanel {
         tfContraseña = new JTextField(null);
         tfContraseña.setBounds(280, 380, 250, 30);
         add(tfContraseña);
-        
-        
+         
         btRegresar = new JButton("Regresar");
         btRegresar.setBounds(330, 550, 150, 40);
         btRegresar.setActionCommand("Regresardever");
@@ -84,7 +81,6 @@ public class PanelVentanaVer extends JPanel {
         TitledBorder borde = BorderFactory.createTitledBorder("Ventana ver");
         borde.setTitleColor(Color.BLACK);
         setBorder(borde);
-
     }
 
     protected void paintComponent(Graphics g) {
@@ -105,39 +101,37 @@ public class PanelVentanaVer extends JPanel {
     }
     
 
+    public JButton getBtRegresar() {
+        return btRegresar;
+    }
 
-    
-        public JButton getBtRegresar() {
-            return btRegresar;
-        }
-    
-        public void setBtRegresar(JButton btRegresar) {
-            this.btRegresar = btRegresar;
-        }
-    
-        public JTextField getTfPagina() {
-            return tfPagina;
-        }
-    
-        public void setTfPagina(JTextField tfPagina) {
-            this.tfPagina = tfPagina;
-        }
-    
-        public JTextField getTfUsuario() {
-            return tfUsuario;
-        }
-    
-        public void setTfUsuario(JTextField tfUsuario) {
-            this.tfUsuario = tfUsuario;
-        }
-    
-        public JTextField getTfContraseña() {
-            return tfContraseña;
-        }
-    
-        public void setTfContraseña(JTextField tfContraseña) {
-            this.tfContraseña = tfContraseña;
-        }
+    public void setBtRegresar(JButton btRegresar) {
+        this.btRegresar = btRegresar;
+    }
+
+    public JTextField getTfPagina() {
+        return tfPagina;
+    }
+
+    public void setTfPagina(JTextField tfPagina) {
+        this.tfPagina = tfPagina;
+    }
+
+    public JTextField getTfUsuario() {
+        return tfUsuario;
+    }
+
+    public void setTfUsuario(JTextField tfUsuario) {
+        this.tfUsuario = tfUsuario;
+    }
+
+    public JTextField getTfContraseña() {
+        return tfContraseña;
+    }
+
+    public void setTfContraseña(JTextField tfContraseña) {
+        this.tfContraseña = tfContraseña;
+    }
 }
 
 
