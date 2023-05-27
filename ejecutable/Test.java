@@ -2,7 +2,6 @@ package ejecutable;
 
 import vista.VentanaAgregar;
 import vista.VentanaOpciones;
-//import controlador.Controlador;
 import vista.VentanaPrincipal;
 import modelo.Cuenta;
 import controlador.Controlador;

@@ -35,13 +35,15 @@ public class Controlador implements ActionListener{
         
         String event = ae.getActionCommand();
 
-        if (event.equals("ingresar")) {
+        if (event.equals("ingresar")) 
+        {
             // Crea una nueva instancia de la ventana secundaria y la hace visible
             vO.setVisible(true);
             vP.setVisible(false);
         }
 
-        if (event.equals("agregar")) {
+        if (event.equals("agregar")) 
+        {
             // Crea una nueva instancia de la ventana agregar y la hace visible
             vO.crearVentanaAgregar();
             this.vO.miVentanaAgregar.agregarOyentesBoton(this);
@@ -52,6 +54,12 @@ public class Controlador implements ActionListener{
         {
             JOptionPane.showMessageDialog(vP, "T cuidas papa");
             System.exit(0);
+        }
+
+        if (event.equals("Regresardeagregar"))
+        {
+            this.vA.setVisible(false);
+            this.vP.setVisible(true);
         }
 
 

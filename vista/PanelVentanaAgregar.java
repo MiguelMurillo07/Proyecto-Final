@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionListener;
-
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.BorderFactory;
@@ -118,14 +118,18 @@ public class PanelVentanaAgregar extends JPanel
         tfContraseña.setText("");
     }
     
-    public void agregarOyentes(ActionListener c)
+    public void agregarOyentes(ActionListener pAL)
     {
-        btRegresar.addActionListener(c);
-        btGuardar.addActionListener(c);
+        btRegresar.addActionListener(pAL);
+        btGuardar.addActionListener(pAL);
     }
     
-    public void cerrarVentanaAgregar()
+    public void paintComponent(Graphics g)
     {
-        this.dispose();
+        super.paintComponent(g);
+        g.setColor(Color.BLACK);
+        g.drawLine(0, 150, 800, 150);
+        g.drawLine(0, 450, 800, 450);
     }
+    
 }

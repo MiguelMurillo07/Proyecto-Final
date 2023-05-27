@@ -5,12 +5,16 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class PanelVentanaOpciones extends JPanel
 {
+    private JLabel lbImagen;
+    private ImageIcon iImagen;
+
     private JButton btAgregar;
     private JButton btModificar;
     private JButton btBorrar;
@@ -23,36 +27,44 @@ public class PanelVentanaOpciones extends JPanel
         setLayout(null);
         setBackground(Color.decode("#003b00"));
 
+         // Creación y adición de la imagen al panel
+         iImagen = new ImageIcon(getClass().getResource("/vista/uis.png"));
+         lbImagen = new JLabel(iImagen);
+         lbImagen.setBounds(10, 10, 170, 100);
+         this.add(lbImagen);
+ 
+
         // Crear y agregar botones
         btAgregar = new JButton("Agregar");
-        btAgregar.setBounds(250, 100, 100, 40);
+        btAgregar.setBounds(350, 130, 150, 40);
         btAgregar.setActionCommand("agregar");
         this.add(btAgregar);
 
         btModificar = new JButton("Modificar");
-        btModificar.setBounds(250, 160, 100, 40);
+        btModificar.setBounds(350, 190, 150, 40);
         btModificar.setActionCommand("modificar");
         this.add(btModificar);
 
         btBorrar = new JButton("Borrar");
-        btBorrar.setBounds(250, 280, 100, 40);
+        btBorrar.setBounds(350, 310, 150, 40);
         btBorrar.setActionCommand("borrarDatos");
         this.add(btBorrar);
 
         btVisualizar = new JButton("Visualizar");
-        btVisualizar.setBounds(250, 220, 100, 40);
+        btVisualizar.setBounds(350, 250, 150, 40);
         btVisualizar.setActionCommand("visualizar");
         this.add(btVisualizar);
 
         btSalir = new JButton("Salir");
-        btSalir.setBounds(250, 400, 100, 20);
+        btSalir.setBounds(350, 430, 150, 20);
+        btSalir.setFont(new Font("Arial", Font.BOLD, 30));
         btSalir.setActionCommand("salir1");
         this.add(btSalir);
 
         // Crear y agregar etiqueta
         lbOpcion = new JLabel("Seleccione una opción:");
-        lbOpcion.setBounds(170, 20, 480, 60);
-        lbOpcion.setFont(new Font("Arial", Font.BOLD, 25));
+        lbOpcion.setBounds(210, 50, 480, 60);
+        lbOpcion.setFont(new Font("Arial", Font.BOLD, 40));
         lbOpcion.setForeground(new Color(0,0,0));
         this.add(lbOpcion);
 
