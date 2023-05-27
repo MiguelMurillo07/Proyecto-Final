@@ -13,8 +13,7 @@ import javax.swing.JPanel;
 
 public class PanelVentanaOpciones extends JPanel
 {
-    private JLabel lbImagen;
-    private ImageIcon iImagen;
+    
 
     private JButton btAgregar;
     private JButton btModificar;
