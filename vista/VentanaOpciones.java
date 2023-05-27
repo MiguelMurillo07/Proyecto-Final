@@ -27,4 +27,9 @@ public class VentanaOpciones extends JFrame
         setVisible(false);
 
     }
+
+    public void crearventana ()
+    {
+        VentanaAgregar nueva = new VentanaAgregar();
+    }
 }
