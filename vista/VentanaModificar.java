@@ -2,6 +2,9 @@ package vista;
 
 
 import javax.swing.JFrame;
+
+import controlador.Controlador;
+
 import java.awt.Color;
 
 public class VentanaModificar extends JFrame
@@ -26,5 +29,10 @@ public class VentanaModificar extends JFrame
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
         setVisible(true);
+    }
+
+    public void agregarOyentesBoton(Controlador controlador) 
+    {
+        
     }
 }

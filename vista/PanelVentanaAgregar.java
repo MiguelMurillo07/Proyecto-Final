@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionListener;
-
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.BorderFactory;
@@ -93,20 +93,10 @@ public class PanelVentanaAgregar extends JPanel
         borde.setTitleColor(Color.BLACK);
         setBorder(borde);
 
+    
     }
     
-    // pintar panel
-        /**public void paintComponent(Graphics g) 
-        {
-            super.paintComponent(g);
-            g.setColor(Color.decode("#009933")); // color de la línea diagonal
-
-            for (int i = 0; i <= 780; i ++) 
-            {
-                // dibuja muchas línea diagonal por la mitad del panel
-                g.drawLine(i, getHeight(), getWidth() , getHeight() / 130);
-            }
-        }**/
+    
 
     public String getPagina()
     {
@@ -130,9 +120,18 @@ public class PanelVentanaAgregar extends JPanel
         tfContraseña.setText("");
     }
     
-    public void agregarOyentes(ActionListener c)
+    public void agregarOyentes(ActionListener pAL)
     {
-        btRegresar.addActionListener(c);
-        btGuardar.addActionListener(c);
+        btRegresar.addActionListener(pAL);
+        btGuardar.addActionListener(pAL);
     }
+    
+    public void paintComponent(Graphics g)
+    {
+        super.paintComponent(g);
+        g.setColor(Color.BLACK);
+        g.drawLine(0, 150, 800, 150);
+        g.drawLine(0, 450, 800, 450);
+    }
+    
 }

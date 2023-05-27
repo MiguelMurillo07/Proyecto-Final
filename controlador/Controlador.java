@@ -2,7 +2,12 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
+import javax.swing.JOptionPane;
+
 import vista.VentanaAgregar;
 import vista.VentanaOpciones;
 import vista.VentanaPrincipal;
@@ -33,16 +38,50 @@ public class Controlador implements ActionListener{
         
         String event = ae.getActionCommand();
 
-        if (event.equals("ingresar")) {
+        if (event.equals("ingresar")) 
+        {
             // Crea una nueva instancia de la ventana secundaria y la hace visible
             vO.setVisible(true);
             vP.setVisible(false);
         }
 
-        if (event.equals("agregar")) {
+        if (event.equals("agregar")) 
+        {
             // Crea una nueva instancia de la ventana agregar y la hace visible
-            vA.setVisible(true);
+            vO.crearVentanaAgregar();
+            this.vO.miVentanaAgregar.agregarOyentesBoton(this);
+            //vA.setVisible(true);
+        }
 
+        if (event.equals("salir1"))
+        {
+            JOptionPane.showMessageDialog(vP, "T cuidas papa");
+            System.exit(0);
+        }
+
+        if (event.equals("Regresardeagregar"))
+        {
+            this.vA.setVisible(false);
+            this.vP.setVisible(true);
+        }
+
+
+        if (event.equals("modificar"))
+        {
+            vO.crearVentanaModificar();
+            this.vO.miVentanaModificar.agregarOyentesBoton(this);
+        }
+
+        if (event.equals("visualizar"))
+        {
+            vO.crearVentanaVer();
+            this.vO.miVentanaVer.agregarOyentesBoton(this);
+        }
+
+        if (event.equals("borrarDatos"))
+        {
+            vO.crearVentanaBorrar();
+            this.vO.miVentanaBorrar.agregarOyentesBoton(this);
         }
 
         if (event.equals("guardarcredencial"))
@@ -73,12 +112,14 @@ public class Controlador implements ActionListener{
 
         if(event.equals("salir"))
         {
+            JOptionPane.showMessageDialog(vA, "Gracias por usar la App.\n           Vuelve Pronto...");
             System.exit(0);
         }
         
         if(event.equals("borrar"))
         {
             vP.miPanelVentanaPrincipal.borrar();
+            JOptionPane.showMessageDialog(vA, "Los datos han sido parcialmente borrados.");
         }
     }
 }

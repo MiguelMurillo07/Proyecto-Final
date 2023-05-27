@@ -4,6 +4,8 @@ import java.awt.Color;
 
 import javax.swing.JFrame;
 
+import controlador.Controlador;
+
 public class VentanaAgregar extends JFrame
 {
     public PanelVentanaAgregar miPanelVentanaAgregar;
@@ -25,4 +27,11 @@ public class VentanaAgregar extends JFrame
         setResizable(false);
         setVisible(false);
     }
+
+    public void agregarOyentesBoton(Controlador controlador) 
+    {
+        
+    }
+
+    
 }

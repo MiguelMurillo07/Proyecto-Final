@@ -53,5 +53,6 @@ public class PanelVentanaModificar extends JPanel{
         return cbOperadores;
     }
     
+    
 
 }

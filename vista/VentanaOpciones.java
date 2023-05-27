@@ -8,6 +8,10 @@ public class VentanaOpciones extends JFrame
 {
     
     public PanelVentanaOpciones miPanelVentanaOpciones;
+    public VentanaAgregar miVentanaAgregar = null;
+    public VentanaModificar miVentanaModificar = null;
+    public VentanaBorrar miVentanaBorrar = null;
+    public VentanaVer miVentanaVer = null;
 
     public VentanaOpciones()
     {
@@ -28,8 +32,27 @@ public class VentanaOpciones extends JFrame
 
     }
 
-    public void crearventana ()
+    public void crearVentanaAgregar()
     {
-        VentanaAgregar nueva = new VentanaAgregar();
+        VentanaAgregar miVentanaAgregar = new VentanaAgregar();
+        miVentanaAgregar.setVisible(true);
+    }
+
+    public void crearVentanaModificar()
+    {
+        VentanaModificar miVentanaModificar = new VentanaModificar();
+        miVentanaModificar.setVisible(true);
+    }
+
+    public void crearVentanaBorrar()
+    {
+        VentanaBorrar miVentanaBorrar = new VentanaBorrar();
+        miVentanaBorrar.setVisible(true);
+    }
+
+    public void crearVentanaVer()
+    {
+        VentanaVer miVentanaVer = new VentanaVer();
+        miVentanaVer.setVisible(true);
     }
 }
