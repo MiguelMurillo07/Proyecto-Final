@@ -27,6 +27,6 @@ public class VentanaSeleccionar extends JFrame
         setVisible(false);
         
         
-    }
+    }
 
 }
