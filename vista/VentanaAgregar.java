@@ -28,10 +28,6 @@ public class VentanaAgregar extends JFrame
         setVisible(false);
     }
 
-    public void agregarOyentesBoton(Controlador controlador) 
-    {
-        
-    }
 
     
 }

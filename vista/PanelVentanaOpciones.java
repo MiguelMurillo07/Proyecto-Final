@@ -56,15 +56,15 @@ public class PanelVentanaOpciones extends JPanel
         this.add(btVisualizar);
 
         btSalir = new JButton("Salir");
-        btSalir.setBounds(350, 430, 150, 20);
-        btSalir.setFont(new Font("Arial", Font.BOLD, 30));
+        btSalir.setBounds(350, 430, 150, 32);
+        btSalir.setFont(new Font("Arial", Font.BOLD, 28));
         btSalir.setActionCommand("salir1");
         this.add(btSalir);
 
         // Crear y agregar etiqueta
         lbOpcion = new JLabel("Seleccione una opción:");
         lbOpcion.setBounds(210, 50, 480, 60);
-        lbOpcion.setFont(new Font("Arial", Font.BOLD, 40));
+        lbOpcion.setFont(new Font("Arial", Font.BOLD, 30));
         lbOpcion.setForeground(new Color(0,0,0));
         this.add(lbOpcion);
 

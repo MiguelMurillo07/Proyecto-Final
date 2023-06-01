@@ -7,6 +7,7 @@ public class VentanaPrincipal extends JFrame
 {
     public VentanaAgregar miVentanaAgregar;
     public PanelVentanaPrincipal miPanelVentanaPrincipal;
+    public PanelVentanaAgregar miPanelVentanaAgregar;
 
     public VentanaPrincipal()
     {

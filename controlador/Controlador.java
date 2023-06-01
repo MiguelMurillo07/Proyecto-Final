@@ -46,14 +46,19 @@ public class Controlador implements ActionListener{
         {
             // Crea una nueva instancia de la ventana agregar y la hace visible
             vO.crearVentanaAgregar();
-            this.vO.miVentanaAgregar.agregarOyentesBoton(this);
+            this.vO.miVentanaAgregar.miPanelVentanaAgregar.agregarOyentes(this);
             //vA.setVisible(true);
         }
 
         if (event.equals("salir1"))
         {
-            JOptionPane.showMessageDialog(vP, "T cuidas papa");
-            System.exit(0);
+            //JOptionPane.showMessageDialog(vP, "T cuidas bro");
+            //System.exit(0);
+
+            //Devolverme a la ventana principal
+            vO.setVisible(false);
+            vP.setVisible(true);
+            
         }
 
         if (event.equals("Regresardeagregar"))
@@ -78,7 +83,7 @@ public class Controlador implements ActionListener{
         if (event.equals("borrarDatos"))
         {
             vO.crearVentanaBorrar();
-            this.vO.miVentanaBorrar.agregarOyentesBoton(this);
+        
         }
 
         if(event.equals("salir"))

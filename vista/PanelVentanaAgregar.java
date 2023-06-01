@@ -2,6 +2,7 @@ package vista;
 
 import javax.swing.JPanel;
 import java.awt.Color;
+import java.awt.Dialog;
 import java.awt.Graphics;
 import java.awt.event.ActionListener;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
@@ -11,9 +12,11 @@ import javax.swing.BorderFactory;
 import javax.swing.border.TitledBorder;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JDialog;
+
 import java.awt.Font;
 
-public class PanelVentanaAgregar extends JPanel
+public class PanelVentanaAgregar extends JDialog
 {
     private JLabel lbImagen;
     private ImageIcon iImagen;
@@ -31,20 +34,22 @@ public class PanelVentanaAgregar extends JPanel
 
     public PanelVentanaAgregar()
     {
+        super((Dialog)null, "Ventana Agregar", true);
         setLayout(null);
+        
         setBackground(Color.GREEN);
 
         // Creación y adición de la imagen al panel
         iImagen = new ImageIcon(getClass().getResource("/vista/uis.png"));
         lbImagen = new JLabel(iImagen);
         lbImagen.setBounds(10, 10, 170, 100);
-        this.add(lbImagen);
+        getContentPane().add(lbImagen);
 
         lbAgregar = new JLabel("Agregue nuevos datos de credenciales: ");
         lbAgregar.setBounds(180, 100, 500, 30);
         lbAgregar.setFont(new Font("Arial", Font.BOLD, 25));
         lbAgregar.setForeground(Color.BLACK);
-        this.add(lbAgregar);
+        getContentPane().add(lbAgregar);
 
         //Creación y adición de etiquetas 
         lbPagina = new JLabel("Nombre de la pagina o aplicación");
@@ -86,10 +91,10 @@ public class PanelVentanaAgregar extends JPanel
         btRegresar.setActionCommand("Regresardeagregar");
         this.add(btRegresar);
 
-        // Borde
+        /*// Borde
         TitledBorder borde = BorderFactory.createTitledBorder("Ventana Agregar");
         borde.setTitleColor(Color.BLACK);
-        setBorder(borde);
+        setBorder(borde);/* */
 
     
     }
@@ -123,13 +128,18 @@ public class PanelVentanaAgregar extends JPanel
         btRegresar.addActionListener(pAL);
         btGuardar.addActionListener(pAL);
     }
+
+    public void cerrarDialogo()
+    {
+        this.dispose();
+    }  
     
-    public void paintComponent(Graphics g)
+    /*public void paintComponent(Graphics g)
     {
         super.paintComponent(g);
         g.setColor(Color.BLACK);
         g.drawLine(0, 150, 800, 150);
         g.drawLine(0, 450, 800, 450);
-    }
+    }/* */
     
 }

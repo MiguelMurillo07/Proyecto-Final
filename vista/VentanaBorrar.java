@@ -24,6 +24,5 @@ public class VentanaBorrar extends JFrame
         setVisible(true);
     }
 
-    public void agregarOyentesBoton(Controlador controlador) {
-    }
+    
 }
