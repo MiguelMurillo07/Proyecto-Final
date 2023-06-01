@@ -66,17 +66,23 @@ public class PanelVentanaSeleccionar extends JPanel
     }
 
     // pintar panel
-    /**public void paintComponent(Graphics g) {
+    protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.setColor(Color.decode("#009933")); // color de la línea diagonal
-
-        for (int i = 0; i <= 780; i = i + 1) 
-        {
-            // Dibuja una línea diagonal por la mitad del panel en cada iteración
-            g.drawLine(i, getHeight(), getWidth(), getHeight() / 130);
-        }
-
-    }**/
+        
+        int width = getWidth();
+        int height = getHeight();
+    
+        // Dibujar la figura diagonal
+        g.setColor(Color.decode("#009933"));
+        g.fillRect(0, 0, width, height); 
+        
+        // Cambiar el color de la parte inferior
+        g.setColor(Color.decode("#003b00"));
+        int[] xPoints = {0, width, 0};
+        int[] yPoints = {0, height, height };
+        g.fillPolygon(xPoints, yPoints, 3);        
+    }
+    
     
         public String getOperadores() {
             return (String) cbOperadores.getSelectedItem();

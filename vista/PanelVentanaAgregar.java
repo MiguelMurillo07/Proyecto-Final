@@ -1,5 +1,7 @@
 package vista;
 
+
+
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Dialog;
@@ -98,7 +100,22 @@ public class PanelVentanaAgregar extends JDialog
 
     
     }
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        
+        int width = getWidth();
+        int height = getHeight();
     
+        // Dibujar la figura diagonal
+        g.setColor(Color.decode("#009933"));
+        g.fillRect(0, 0, width, height); 
+        
+        // Cambiar el color de la parte inferior
+        g.setColor(Color.decode("#003b00"));
+        int[] xPoints = {0, width, 0};
+        int[] yPoints = {0, height, height };
+        g.fillPolygon(xPoints, yPoints, 3);        
+    }
     
 
     public String getPagina()

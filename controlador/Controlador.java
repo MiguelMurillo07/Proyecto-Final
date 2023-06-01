@@ -2,6 +2,9 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 
 import javax.swing.JOptionPane;
 
@@ -84,6 +87,32 @@ public class Controlador implements ActionListener{
         {
             vO.crearVentanaBorrar();
         
+        }
+
+        if (event.equals("guardarcredencial"))
+        {
+            try {
+                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/proyecto", "root", "");
+                PreparedStatement pst = cn.prepareStatement("insert into datos values (?,?,?,?)");
+
+                pst.setString(1, "0");
+                pst.setString(2, vA.miPanelVentanaAgregar.getPagina().trim());
+                pst.setString(3, vA.miPanelVentanaAgregar.getUsuario().trim());
+                pst.setString(4, vA.miPanelVentanaAgregar.getContraseña().trim());
+                pst.executeUpdate();
+
+                vA.miPanelVentanaAgregar.borrar();
+
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
+
+        if(event.equals("Regresardeagregar"))
+        {
+            vA.setVisible(false);
         }
 
         if(event.equals("salir"))
