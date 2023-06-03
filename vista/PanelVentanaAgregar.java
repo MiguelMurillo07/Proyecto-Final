@@ -92,11 +92,7 @@ public class PanelVentanaAgregar extends JPanel
         TitledBorder borde = BorderFactory.createTitledBorder("Ventana Agregar");
         borde.setTitleColor(Color.BLACK);
         setBorder(borde);
-
-    
     }
-    
-    
 
     public String getPagina()
     {

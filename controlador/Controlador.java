@@ -87,7 +87,7 @@ public class Controlador implements ActionListener{
         if (event.equals("guardarcredencial"))
         {
             try {
-                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/proyecto", "root", "");
+                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto", "root", "");
                 PreparedStatement pst = cn.prepareStatement("insert into datos values (?,?,?,?)");
 
                 pst.setString(1, "0");
