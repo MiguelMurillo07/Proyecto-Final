@@ -1,34 +1,24 @@
 package vista;
 
-import javax.swing.JPanel;
 import java.awt.Color;
-import javax.swing.border.TitledBorder;
-import javax.swing.BorderFactory;
-import java.awt.Graphics;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.event.ActionListener;
 
 
-public class PanelVentanaModificar extends JPanel{
+public class PanelVentanaModificar extends JDialog{
 
     private JComboBox<String> cbOperadores;
-    private JLabel lbOperadores;
-
-    private JLabel lbAdm;
-    private JLabel lbAdm2;
-
-    private JLabel lbImagen;
+    private JLabel lbOperadores,lbAdm,lbAdm2,lbImagen;
     private ImageIcon iImagen;
-
-    private JButton btElejir;
-    private JButton btRegresar;
+    private JButton btElejir,btRegresar;
 
     public PanelVentanaModificar()
     {
-
         setLayout(null);
         setBackground(Color.GREEN);
 
@@ -38,7 +28,6 @@ public class PanelVentanaModificar extends JPanel{
          lbImagen.setBounds(10, 10, 170, 100);
          this.add(lbImagen);
  
-
         // agregar y crear jcombox
         cbOperadores = new JComboBox<>();
         cbOperadores.setBounds(170, 280, 500, 40);
@@ -69,37 +58,30 @@ public class PanelVentanaModificar extends JPanel{
 
         btRegresar = new JButton("Regresar");
         btRegresar.setBounds(330, 575, 150, 40);
-        btRegresar.setActionCommand("Regresardemodificar");
+        btRegresar.setActionCommand("RegresarDeModificar");
         this.add(btRegresar);
 
-        // Borde
-        TitledBorder borde = BorderFactory.createTitledBorder("Ventana para modificar");
-        borde.setTitleColor(Color.BLACK);
-        setBorder(borde);
+        this.setTitle("Modificar");
+        this.setSize(800,700);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setVisible(true);
 
     }
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        
-        int width = getWidth();
-        int height = getHeight();
-    
-        // Dibujar la figura diagonal
-        g.setColor(Color.decode("#009933"));
-        g.fillRect(0, 0, width, height); 
-        
-        // Cambiar el color de la parte inferior
-        g.setColor(Color.decode("#003b00"));
-        int[] xPoints = {0, width, 0};
-        int[] yPoints = {0, height, height };
-        g.fillPolygon(xPoints, yPoints, 3);        
-    }
-    
 
-    public JComboBox<String> getCbOperadores() {
+    public JComboBox<String> getCbOperadores() 
+    {
         return cbOperadores;
     }
-    
-    
 
+    public void agregarOyentes(ActionListener pAL)
+    {
+        btRegresar.addActionListener(pAL);
+        btElejir.addActionListener(pAL);
+    }
+    
+    public void cerrarDialogoModificar()
+    {
+        this.dispose();
+    }  
 }

@@ -1,29 +1,20 @@
 package vista;
 
-import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
-import java.awt.Graphics;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JTextField;
 import java.awt.Font;
-import javax.swing.border.TitledBorder;
-import javax.swing.BorderFactory;
+import java.awt.event.ActionListener;
 
-public class PanelVentanaBorrar extends JPanel
+public class PanelVentanaBorrar extends JDialog
 {
-    private JLabel lbImagen;
+    private JLabel lbImagen,lbBorrar,lbPagina,lbUsuario,lbContraseña;
     private ImageIcon iImagen;
-    private JLabel lbBorrar;
-    private JLabel lbPagina;
-    private JLabel lbUsuario;
-    private JLabel lbContraseña;
-    private JTextField tfPagina;
-    private JTextField tfUsuario;
-    private JTextField tfContraseña;
-    private JButton btRegresar;
-    private JButton btBorrar;
+    private JTextField tfPagina,tfUsuario,tfContraseña;
+    private JButton btRegresar,btBorrar;
 
     public PanelVentanaBorrar()
     {
@@ -52,7 +43,6 @@ public class PanelVentanaBorrar extends JPanel
         tfPagina.setBounds(280, 200, 250, 30);
         add(tfPagina);
 
-        
         lbUsuario = new JLabel("Usuario");
         lbUsuario.setBounds(375,260,300,30);
         lbUsuario.setFont(new Font("Arial", Font.BOLD, 17));
@@ -62,7 +52,6 @@ public class PanelVentanaBorrar extends JPanel
         tfUsuario.setBounds(280, 290, 250, 30);
         add(tfUsuario);
 
-        
         lbContraseña = new JLabel("Contraseña");
         lbContraseña.setBounds(360,350,300,30);
         lbContraseña.setFont(new Font("Arial", Font.BOLD, 17));
@@ -82,27 +71,11 @@ public class PanelVentanaBorrar extends JPanel
         btRegresar.setActionCommand("Regresardesegurodeborrar");
         this.add(btRegresar);
 
-        // Borde
-        TitledBorder borde = BorderFactory.createTitledBorder("Ventana Borrar");
-        borde.setTitleColor(Color.BLACK);
-        setBorder(borde);
-    }
-
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        
-        int width = getWidth();
-        int height = getHeight();
-    
-        // Dibujar la figura diagonal
-        g.setColor(Color.decode("#009933"));
-        g.fillRect(0, 0, width, height); 
-        
-        // Cambiar el color de la parte inferior
-        g.setColor(Color.decode("#003b00"));
-        int[] xPoints = {0, width, 0};
-        int[] yPoints = {0, height, height };
-        g.fillPolygon(xPoints, yPoints, 3);        
+        this.setTitle("Opciones");
+        this.setSize(800,700);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setVisible(true);
     }
     
 // Borrar credencial
@@ -139,5 +112,14 @@ public class PanelVentanaBorrar extends JPanel
         return btRegresar;
     }
     
+    public void agregarOyentes(ActionListener pAL)
+    {
+        btRegresar.addActionListener(pAL);
+        btBorrar.addActionListener(pAL);
+    }
 
+    public void cerrarDialogoBorrar()
+    {
+        this.dispose();
+    }  
 }

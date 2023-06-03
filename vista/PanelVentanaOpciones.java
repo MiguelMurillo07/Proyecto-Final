@@ -2,28 +2,17 @@ package vista;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
-
-
-public class PanelVentanaOpciones extends JPanel
+public class PanelVentanaOpciones extends JDialog
 {
-    
-
-    private JButton btAgregar;
-    private JButton btModificar;
-    private JButton btBorrar;
-    private JButton btVisualizar;
-    private JButton btSalir;
-    private JLabel lbOpcion;
-    private JLabel lbImagen;
+    private JButton btAgregar,btModificar,btBorrar,btVisualizar,btSalir;
+    private JLabel lbOpcion,lbImagen;
     private ImageIcon iImagen;
-
 
     public PanelVentanaOpciones()
     {
@@ -35,7 +24,6 @@ public class PanelVentanaOpciones extends JPanel
         lbImagen = new JLabel(iImagen);
         lbImagen.setBounds(10, 10, 170, 100);
         this.add(lbImagen);
-
 
         // Crear y agregar botones
         btAgregar = new JButton("Agregar");
@@ -59,13 +47,8 @@ public class PanelVentanaOpciones extends JPanel
         this.add(btVisualizar);
 
         btSalir = new JButton("Salir");
-<<<<<<< HEAD
-        btSalir.setBounds(350, 430, 150, 32);
-        btSalir.setFont(new Font("Arial", Font.BOLD, 28));
-=======
         btSalir.setBounds(345, 550, 100, 20);
->>>>>>> 6d6f268b9634ee18c005fe5c67a327c1068929cd
-        btSalir.setActionCommand("salir1");
+        btSalir.setActionCommand("salir");
         this.add(btSalir);
 
         // Crear y agregar etiqueta
@@ -75,32 +58,21 @@ public class PanelVentanaOpciones extends JPanel
         lbOpcion.setForeground(new Color(0,0,0));
         this.add(lbOpcion);
 
-    }
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        
-        int width = getWidth();
-        int height = getHeight();
-    
-        // Dibujar la figura diagonal
-        g.setColor(Color.decode("#009933"));
-        g.fillRect(0, 0, width, height); 
-        
-        // Cambiar el color de la parte inferior
-        g.setColor(Color.decode("#003b00"));
-        int[] xPoints = {0, width, 0};
-        int[] yPoints = {0, height, height };
-        g.fillPolygon(xPoints, yPoints, 3);        
-    }
-    
+        this.setTitle("Opciones");
+        this.setSize(800,700);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setVisible(true);
 
-        public void agregarOyentes(ActionListener pAL)
-        {
-            btAgregar.addActionListener(pAL);
-            btModificar.addActionListener(pAL);
-            btBorrar.addActionListener(pAL);
-            btVisualizar.addActionListener(pAL);
-            btSalir.addActionListener(pAL);
-        }
-    
+    }
+
+    public void agregarOyentes(ActionListener pAL)
+    {
+        btAgregar.addActionListener(pAL);
+        btModificar.addActionListener(pAL);
+        btBorrar.addActionListener(pAL);
+        btVisualizar.addActionListener(pAL);
+        btSalir.addActionListener(pAL);
+    }
+
 }

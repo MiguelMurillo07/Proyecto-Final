@@ -7,7 +7,9 @@ public class VentanaPrincipal extends JFrame
 {
     public VentanaAgregar miVentanaAgregar;
     public PanelVentanaPrincipal miPanelVentanaPrincipal;
-    public PanelVentanaAgregar miPanelVentanaAgregar;
+    public PanelVentanaOpciones miPanelVentanaOpciones = null;
+    public PanelVentanaAgregar miPanelVentanaAgregar = null;
+    public PanelVentanaModificar miPanelVentanaModificar = null;
 
     public VentanaPrincipal()
     {
@@ -29,9 +31,18 @@ public class VentanaPrincipal extends JFrame
 
     }
 
+    public void crearVentanaOpciones()
+    {
+        miPanelVentanaOpciones = new PanelVentanaOpciones();
+    }
+
     public void crearVentanaAgregar()
     {
-        miVentanaAgregar = new VentanaAgregar();
-        miVentanaAgregar.setVisible(true);
+        miPanelVentanaAgregar= new PanelVentanaAgregar();
+    }
+
+    public void crearVentanaModificar()
+    {
+        miPanelVentanaModificar= new PanelVentanaModificar();
     }
 }
