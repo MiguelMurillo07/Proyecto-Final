@@ -83,12 +83,23 @@ public class PanelVentanaVer extends JPanel
         setBorder(borde);
     }
 
-    @Override
-    public void paintComponent(Graphics g) {
+    protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.setColor(Color.BLACK);
-        g.drawLine(200, 0, 200, 600);
+        
+        int width = getWidth();
+        int height = getHeight();
+    
+        // Dibujar la figura diagonal
+        g.setColor(Color.decode("#009933"));
+        g.fillRect(0, 0, width, height); 
+        
+        // Cambiar el color de la parte inferior
+        g.setColor(Color.decode("#003b00"));
+        int[] xPoints = {0, width, 0};
+        int[] yPoints = {0, height, height };
+        g.fillPolygon(xPoints, yPoints, 3);        
     }
+    
 
     public JButton getBtRegresar() {
         return btRegresar;
