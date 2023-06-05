@@ -5,9 +5,7 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-
 import javax.swing.JOptionPane;
-
 import vista.VentanaOpciones;
 import vista.VentanaPrincipal;
 import modelo.Cuenta;
@@ -71,7 +69,7 @@ public class Controlador implements ActionListener{
 
         if (event.equals("borrarDatos"))
         {
-        
+            
         }
 
         if (event.equals("guardarcredencial"))
@@ -80,13 +78,13 @@ public class Controlador implements ActionListener{
                 Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto", "root", "");
                 PreparedStatement pst = cn.prepareStatement("insert into datos values (?,?,?,?)");
 
-                //pst.setString(1, "0");
-                //pst.setString(2, vA.miPanelVentanaAgregar.getPagina().trim());
-                //pst.setString(3, vA.miPanelVentanaAgregar.getUsuario().trim());
-                //pst.setString(4, vA.miPanelVentanaAgregar.getContraseña().trim());
-                //pst.executeUpdate();
-
-               // vA.miPanelVentanaAgregar.borrar();
+                pst.setString(1, "0");
+                pst.setString(2, vP.miPanelVentanaAgregar.getPagina().trim());
+                pst.setString(3, vP.miPanelVentanaAgregar.getUsuario().trim());
+                pst.setString(4, vP.miPanelVentanaAgregar.getContraseña().trim());
+                pst.executeUpdate();
+                JOptionPane.showMessageDialog(vP, "Registro exitoso ", "Realizado", 2);
+                vP.miPanelVentanaAgregar.borrar();
 
             }
             catch (Exception e)
