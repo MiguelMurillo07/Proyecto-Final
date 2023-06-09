@@ -43,11 +43,33 @@ public class Controlador implements ActionListener{
             vP.miPanelVentanaOpciones.setVisible(false);
         }
 
+        if (event.equals("borrarDatos"))
+        {
+            // crea una nueva de la ventana borrary la hace visible
+            vP.crearVentanaBorrar();
+            this.vP.miPanelVentanaBorrar.agregarOyentes(this);
+            vP.miPanelVentanaOpciones.setVisible(false);
+        }
+
+        if (event.equals("visualizar"))
+        {
+
+            //abre una nueva ventana visualizar
+            vP.crearVentanaVer();
+            this.vP.miPanelVentanaAgregar.agregarOyentes(this);
+            vP.miPanelVentanaOpciones.setVisible(false);
+        }
+
         if (event.equals("modificar"))
         {
             vP.crearVentanaModificar();
             this.vP.miPanelVentanaModificar.agregarOyentes(this);
             vP.miPanelVentanaOpciones.setVisible(false);
+        }
+
+        if (event.equals("Elegiropcion"))
+        {
+            
         }
 
         if (event.equals("RegresarDeAgregar"))
@@ -59,6 +81,12 @@ public class Controlador implements ActionListener{
         if (event.equals("RegresarDeModificar"))
         {
             vP.miPanelVentanaModificar.cerrarDialogoModificar();
+            vP.miPanelVentanaOpciones.setVisible(true);
+        }
+
+        if (event.equals("Regresardesegurodeborrar"))
+        {
+            vP.miPanelVentanaBorrar.cerrarDialogoBorrar();
             vP.miPanelVentanaOpciones.setVisible(true);
         }
 

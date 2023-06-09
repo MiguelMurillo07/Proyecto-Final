@@ -6,13 +6,14 @@ import javax.swing.border.TitledBorder;
 import javax.swing.BorderFactory;
 import java.awt.Graphics;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 
-public class PanelVentanaVer extends JPanel 
+public class PanelVentanaVer extends JDialog
 {
     private JLabel lbImagen;
     private ImageIcon iImagen;
@@ -77,27 +78,6 @@ public class PanelVentanaVer extends JPanel
         btRegresar.setActionCommand("Regresardever");
         this.add(btRegresar);
 
-        // Borde
-        TitledBorder borde = BorderFactory.createTitledBorder("Ventana ver");
-        borde.setTitleColor(Color.BLACK);
-        setBorder(borde);
-    }
-
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        
-        int width = getWidth();
-        int height = getHeight();
-    
-        // Dibujar la figura diagonal
-        g.setColor(Color.decode("#009933"));
-        g.fillRect(0, 0, width, height); 
-        
-        // Cambiar el color de la parte inferior
-        g.setColor(Color.decode("#003b00"));
-        int[] xPoints = {0, width, 0};
-        int[] yPoints = {0, height, height };
-        g.fillPolygon(xPoints, yPoints, 3);        
     }
     
 
@@ -132,6 +112,11 @@ public class PanelVentanaVer extends JPanel
     public void setTfContraseña(JTextField tfContraseña) {
         this.tfContraseña = tfContraseña;
     }
+
+    public void cerrarDialogoVer()
+    {
+        this.dispose();
+    } 
 }
 
 
