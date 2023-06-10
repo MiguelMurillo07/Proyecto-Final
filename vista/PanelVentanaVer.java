@@ -80,7 +80,7 @@ public class PanelVentanaVer extends JDialog
         btRegresar.setActionCommand("RegresarDeVer");
         this.add(btRegresar);
 
-        iImagen = new ImageIcon(getClass().getResource("/vista/img 3.jpg"));
+        iImagen = new ImageIcon(getClass().getResource("/vista/img 4.jpg"));
         lbImagen = new JLabel(iImagen);
         lbImagen.setBounds(10, 10, 770, 540);
         this.add(lbImagen);
