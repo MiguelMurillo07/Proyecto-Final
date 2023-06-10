@@ -5,6 +5,8 @@ import java.awt.Color;
 import javax.swing.border.TitledBorder;
 import javax.swing.BorderFactory;
 import java.awt.Graphics;
+import java.awt.event.ActionListener;
+
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -90,7 +92,6 @@ public class PanelVentanaVer extends JDialog
         this.setVisible(true);
 
     }
-    
 
     public JButton getBtRegresar() {
         return btRegresar;
@@ -124,6 +125,11 @@ public class PanelVentanaVer extends JDialog
         this.tfContraseña = tfContraseña;
     }
 
+    public void agregarOyentes(ActionListener pAL)
+    {
+        btRegresar.addActionListener(pAL);
+    }
+    
     public void cerrarDialogoVer()
     {
         this.dispose();

@@ -53,10 +53,9 @@ public class Controlador implements ActionListener{
 
         if (event.equals("visualizar"))
         {
-
             //abre una nueva ventana visualizar
             vP.crearVentanaVer();
-            this.vP.miPanelVentanaAgregar.agregarOyentes(this);
+            this.vP.miPanelVentanaVer.agregarOyentes(this);
             vP.miPanelVentanaOpciones.setVisible(false);
         }
 
