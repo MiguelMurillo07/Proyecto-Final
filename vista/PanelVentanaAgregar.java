@@ -28,56 +28,56 @@ public class PanelVentanaAgregar extends JDialog
         getContentPane().add(lbImagen);
 
         lbAgregar = new JLabel("Agregue nuevos datos de credenciales: ");
-        lbAgregar.setBounds(180, 100, 500, 30);
+        lbAgregar.setBounds(180, 80, 500, 30);
         lbAgregar.setFont(new Font("Arial", Font.BOLD, 25));
         lbAgregar.setForeground(Color.BLACK);
         getContentPane().add(lbAgregar);
 
         //Creación y adición de etiquetas 
         lbPagina = new JLabel("Nombre de la pagina o aplicación");
-        lbPagina.setBounds(275,170,300,30);
+        lbPagina.setBounds(275,150,300,30);
         lbPagina.setFont(new Font("Arial", Font.BOLD, 17));
         lbPagina.setForeground(Color.BLACK);
         add(lbPagina);
         tfPagina = new JTextField(null);
-        tfPagina.setBounds(280, 200, 250, 30);
+        tfPagina.setBounds(280, 180, 250, 30);
         add(tfPagina);
 
         lbUsuario = new JLabel("Usuario");
-        lbUsuario.setBounds(375,260,300,30);
+        lbUsuario.setBounds(375,240,300,30);
         lbUsuario.setFont(new Font("Arial", Font.BOLD, 17));
         lbUsuario.setForeground(Color.BLACK);
         add(lbUsuario);
         tfUsuario = new JTextField(null);
-        tfUsuario.setBounds(280, 290, 250, 30);
+        tfUsuario.setBounds(280, 270, 250, 30);
         add(tfUsuario);
 
         lbContraseña = new JLabel("Contraseña");
-        lbContraseña.setBounds(360,350,300,30);
+        lbContraseña.setBounds(360,330,300,30);
         lbContraseña.setFont(new Font("Arial", Font.BOLD, 17));
         lbContraseña.setForeground(Color.BLACK);
         add(lbContraseña);
         tfContraseña = new JTextField(null);
-        tfContraseña.setBounds(280, 380, 250, 30);
+        tfContraseña.setBounds(280, 360, 250, 30);
         add(tfContraseña);
         
         btGuardar = new JButton("Guardar");
-        btGuardar.setBounds(330, 490, 150, 40);
+        btGuardar.setBounds(330, 415, 150, 30);
         btGuardar.setActionCommand("guardarcredencial");
         this.add(btGuardar);
         
         btRegresar = new JButton("Regresar");
-        btRegresar.setBounds(330, 550, 150, 40);
+        btRegresar.setBounds(330, 455, 150, 30);
         btRegresar.setActionCommand("RegresarDeAgregar");
         this.add(btRegresar);
 
-        iImagen = new ImageIcon(getClass().getResource("/vista/posible img.png"));
+        iImagen = new ImageIcon(getClass().getResource("/vista/img 3.jpg"));
         lbImagen = new JLabel(iImagen);
-        lbImagen.setBounds(10, 10, 170, 100);
+        lbImagen.setBounds(10, 10, 770, 510);
         this.add(lbImagen);
 
         this.setTitle("Agregar");
-        this.setSize(800,700);
+        this.setSize(800,550);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setVisible(true);
