@@ -90,6 +90,12 @@ public class Controlador implements ActionListener{
             vP.miPanelVentanaOpciones.setVisible(true);
         }
 
+        if (event.equals("RegresarDeVer"))
+        {
+            vP.miPanelVentanaVer.cerrarDialogoVer();
+            vP.miPanelVentanaOpciones.setVisible(true);
+        }
+
         if (event.equals("visualizar"))
         {
 

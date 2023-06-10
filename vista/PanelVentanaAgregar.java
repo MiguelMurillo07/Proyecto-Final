@@ -73,11 +73,11 @@ public class PanelVentanaAgregar extends JDialog
 
         iImagen = new ImageIcon(getClass().getResource("/vista/img 3.jpg"));
         lbImagen = new JLabel(iImagen);
-        lbImagen.setBounds(10, 10, 770, 510);
+        lbImagen.setBounds(10, 10, 770, 540);
         this.add(lbImagen);
 
         this.setTitle("Agregar");
-        this.setSize(800,550);
+        this.setSize(800,600);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setVisible(true);

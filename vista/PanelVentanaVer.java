@@ -74,9 +74,20 @@ public class PanelVentanaVer extends JDialog
         add(tfContraseña);
          
         btRegresar = new JButton("Regresar");
-        btRegresar.setBounds(330, 550, 150, 40);
-        btRegresar.setActionCommand("Regresardever");
+        btRegresar.setBounds(330, 450, 150, 40);
+        btRegresar.setActionCommand("RegresarDeVer");
         this.add(btRegresar);
+
+        iImagen = new ImageIcon(getClass().getResource("/vista/img 3.jpg"));
+        lbImagen = new JLabel(iImagen);
+        lbImagen.setBounds(10, 10, 770, 540);
+        this.add(lbImagen);
+
+        this.setTitle("Visualizar");
+        this.setSize(800,600);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setVisible(true);
 
     }
     
@@ -116,8 +127,5 @@ public class PanelVentanaVer extends JDialog
     public void cerrarDialogoVer()
     {
         this.dispose();
-    } 
+    }
 }
-
-
-
