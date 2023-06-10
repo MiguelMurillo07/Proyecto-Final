@@ -27,13 +27,21 @@ public class Controlador implements ActionListener{
         
         String event = ae.getActionCommand();
 
-        if (event.equals("ingresar")) 
-        {
+        if (event.equals("ingresar")) {
+            String usuario = vP.miPanelVentanaPrincipal.getUsuario();
+            String contraseña = vP.miPanelVentanaPrincipal.getContraseña();
+
+        if (usuario.equals("UIS") && contraseña.equals("UIS")) {
             // Crea una nueva instancia de la ventana secundaria y la hace visible
             vP.crearVentanaOpciones();
             this.vP.miPanelVentanaOpciones.agregarOyentes(this);
             vP.setVisible(false);
+        } else {
+            
+            JOptionPane.showMessageDialog(null, "No puedes ingresar pa, para ajuera >:C", null,1);
         }
+}
+
 
         if (event.equals("agregar")) 
         {
