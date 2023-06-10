@@ -71,6 +71,11 @@ public class PanelVentanaAgregar extends JDialog
         btRegresar.setActionCommand("RegresarDeAgregar");
         this.add(btRegresar);
 
+        iImagen = new ImageIcon(getClass().getResource("/vista/posible img.png"));
+        lbImagen = new JLabel(iImagen);
+        lbImagen.setBounds(10, 10, 170, 100);
+        this.add(lbImagen);
+
         this.setTitle("Agregar");
         this.setSize(800,700);
         this.setLocationRelativeTo(null);

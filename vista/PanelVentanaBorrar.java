@@ -1,5 +1,6 @@
 package vista;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -70,6 +71,11 @@ public class PanelVentanaBorrar extends JDialog
         btRegresar.setBounds(330, 550, 150, 40);
         btRegresar.setActionCommand("Regresardesegurodeborrar");
         this.add(btRegresar);
+
+        iImagen = new ImageIcon(getClass().getResource("/vista/posible img.png"));
+        lbImagen = new JLabel(iImagen);
+        lbImagen.setBounds(10, 10, 170, 100);
+        this.add(lbImagen, BorderLayout.WEST);
 
         this.setTitle("Opciones");
         this.setSize(800,700);
