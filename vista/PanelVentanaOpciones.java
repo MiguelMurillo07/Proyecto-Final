@@ -63,7 +63,7 @@ public class PanelVentanaOpciones extends JDialog
         lbImagen.setBounds(10, 5, 760, 550);
         this.add(lbImagen);
 
-        this.setTitle("Opciones");
+        this.setTitle("Opciones Disponibles");
         this.setSize(800,600);
         this.setLocationRelativeTo(null);
         this.setResizable(false);

@@ -31,14 +31,14 @@ public class Controlador implements ActionListener{
             String usuario = vP.miPanelVentanaPrincipal.getUsuario();
             String contraseña = vP.miPanelVentanaPrincipal.getContraseña();
 
-        if (usuario.equals("UIS") && contraseña.equals("UIS")) {
+        if (usuario.equals("UIS") && contraseña.equals("UIS2023")) {
             // Crea una nueva instancia de la ventana secundaria y la hace visible
             vP.crearVentanaOpciones();
             this.vP.miPanelVentanaOpciones.agregarOyentes(this);
             vP.setVisible(false);
         } else {
             
-            JOptionPane.showMessageDialog(null, "No puedes ingresar pa, para ajuera >:C", null,1);
+            JOptionPane.showMessageDialog(null, "Usuario y/o Contraseña incorrectos, por favor vuelve a intentarlo.", null,1);
         }
 }
 

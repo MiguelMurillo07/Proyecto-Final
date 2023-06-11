@@ -30,12 +30,12 @@ public class PanelVentanaModificar extends JDialog{
  
         // agregar y crear jcombox
         cbOperadores = new JComboBox<>();
-        cbOperadores.setBounds(170, 280, 500, 40);
+        cbOperadores.setBounds(180, 280, 500, 40);
         this.add(cbOperadores);
 
         lbOperadores = new JLabel("Elija cual desea modificar: ");
-        lbOperadores.setBounds(170, 220, 500, 20);
-        lbOperadores.setFont(new Font("Arial", Font.BOLD, 25));
+        lbOperadores.setBounds(190, 225, 500, 20);
+        lbOperadores.setFont(new Font("Arial", Font.BOLD, 20));
         lbOperadores.setForeground(Color.BLACK);
         this.add(lbOperadores);
 
