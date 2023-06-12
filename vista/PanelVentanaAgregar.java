@@ -93,6 +93,21 @@ public class PanelVentanaAgregar extends JDialog
         return tfContraseña.getText();
     }
     
+    public void setPagina(String pagina)
+    {
+        tfPagina.setText(pagina);
+    }
+
+    public void setUsuario(String usuario)
+    {
+        tfUsuario.setText(usuario);
+    }
+
+    public void setContraseña(String contraseña)
+    {
+        tfContraseña.setText(contraseña);
+    }
+
     public void borrar()
     {
         tfPagina.setText("");

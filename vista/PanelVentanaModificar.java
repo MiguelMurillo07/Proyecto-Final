@@ -4,10 +4,15 @@ import java.awt.Color;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import java.sql.Connection;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 
 public class PanelVentanaModificar extends JDialog{
@@ -45,7 +50,7 @@ public class PanelVentanaModificar extends JDialog{
         lbAdm.setForeground(new Color(0,0,0));
         this.add(lbAdm);
 
-        lbAdm2 = new JLabel("Que desea modificar");
+        lbAdm2 = new JLabel("que desea modificar");
         lbAdm2.setBounds(260, 130, 680, 60);
         lbAdm2.setFont(new Font("Arial", Font.BOLD, 30));
         lbAdm2.setForeground(new Color(0,0,0));  
@@ -53,12 +58,12 @@ public class PanelVentanaModificar extends JDialog{
 
         btElejir = new JButton("Elegir");
         btElejir.setBounds(330, 510, 150, 40);
-        btElejir.setActionCommand("Elegiropcion");
+        btElejir.setActionCommand("ElegirOpcionModificar");
         this.add(btElejir);
 
         btRegresar = new JButton("Regresar");
         btRegresar.setBounds(330, 575, 150, 40);
-        btRegresar.setActionCommand("RegresarDeModificar");
+        btRegresar.setActionCommand("RegresarModificar");
         this.add(btRegresar);
 
         this.setTitle("Modificar");
@@ -67,11 +72,8 @@ public class PanelVentanaModificar extends JDialog{
         this.setResizable(false);
         this.setVisible(true);
 
-    }
+        cargarDatosEnComboBox("pagina");
 
-    public JComboBox<String> getCbOperadores() 
-    {
-        return cbOperadores;
     }
 
     public void agregarOyentes(ActionListener pAL)
@@ -80,8 +82,33 @@ public class PanelVentanaModificar extends JDialog{
         btElejir.addActionListener(pAL);
     }
     
-    public void cerrarDialogoModificar()
-    {
+    public void cerrarDialogoModificar() {
+        this.setVisible(false);
         this.dispose();
     }  
+
+    public void cargarDatosEnComboBox(String nombreColumna) {
+        cbOperadores.removeAllItems(); // Limpiar los elementos existentes en el JComboBox
+
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto", "root", "");
+            PreparedStatement pst = cn.prepareStatement("SELECT " + nombreColumna + " FROM datos");
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                String valor = rs.getString(nombreColumna);
+                cbOperadores.addItem(valor);
+            }
+
+            rs.close();
+            pst.close();
+            cn.close();
+        } catch (Exception e) {
+            // Manejar cualquier excepción que pueda ocurrir
+        }
+    }
+    
+    public String getOpcionSeleccionada() {
+        return (String) cbOperadores.getSelectedItem();
+    }
 }

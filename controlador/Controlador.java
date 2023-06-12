@@ -5,9 +5,11 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import vista.VentanaOpciones;
 import vista.VentanaPrincipal;
+import vista.VentanaModificar;
 import modelo.Cuenta;
 
 public class Controlador implements ActionListener{
@@ -50,13 +52,18 @@ public class Controlador implements ActionListener{
             vP.miPanelVentanaOpciones.setVisible(false);
         }
 
+        if (event.equals("ElegirOpcionModificar"))
+        {
+            vP.crearVentanaModificar2();
+        }
+
         if (event.equals("RegresarDeAgregar"))
         {
             vP.miPanelVentanaAgregar.cerrarDialogoAgregar();
             vP.miPanelVentanaOpciones.setVisible(true);
         }
 
-        if (event.equals("RegresarDeModificar"))
+        if (event.equals("RegresarModificar"))
         {
             vP.miPanelVentanaModificar.cerrarDialogoModificar();
             vP.miPanelVentanaOpciones.setVisible(true);
@@ -69,7 +76,15 @@ public class Controlador implements ActionListener{
 
         if (event.equals("borrarDatos"))
         {
-            
+            vP.crearVentanaBorrar();
+            this.vP.miPanelVentanaBorrar.agregarOyentes(this);
+            vP.miPanelVentanaOpciones.setVisible(false);
+        }
+
+        if (event.equals("RegresarDeBorrarDatos"))
+        {
+            vP.miPanelVentanaBorrar.cerrarDialogoBorrar();
+            vP.miPanelVentanaOpciones.setVisible(true);
         }
 
         if (event.equals("guardarcredencial"))
@@ -92,6 +107,34 @@ public class Controlador implements ActionListener{
 
             }
         }
+
+        if (event.equals("guardarcredencialModificada"))
+        {
+            String pagina = vP.miVentanaModificar.getPagina();
+            String usuario = vP.miVentanaModificar.getUsuario();
+            String contraseña = vP.miVentanaModificar.getContraseña();
+
+            // Actualizar los datos en la base de datos
+            try {
+                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto", "root", "");
+                PreparedStatement pst = cn.prepareStatement("UPDATE datos SET usuario = ?, contraseña = ? WHERE pagina = ?");
+                pst.setString(1, usuario);
+                pst.setString(2, contraseña);
+                pst.setString(3, pagina);
+                int rowsAffected = pst.executeUpdate();
+
+                if (rowsAffected > 0) {
+                    // Mostrar mensaje de éxito
+                    System.out.println("Los datos se han actualizado correctamente.");
+                }
+
+                pst.close();
+                cn.close();
+            } catch (Exception ex) {
+                // Manejar cualquier excepción que pueda ocurrir
+            }
+        }
+
 
         if(event.equals("salir"))
         {

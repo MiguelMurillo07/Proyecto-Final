@@ -68,10 +68,10 @@ public class PanelVentanaBorrar extends JDialog
 
         btRegresar = new JButton("Regresar");
         btRegresar.setBounds(330, 550, 150, 40);
-        btRegresar.setActionCommand("Regresardesegurodeborrar");
+        btRegresar.setActionCommand("RegresarDeBorrarDatos");
         this.add(btRegresar);
 
-        this.setTitle("Opciones");
+        this.setTitle("Borrar credencial");
         this.setSize(800,700);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -122,4 +122,6 @@ public class PanelVentanaBorrar extends JDialog
     {
         this.dispose();
     }  
+
+    
 }

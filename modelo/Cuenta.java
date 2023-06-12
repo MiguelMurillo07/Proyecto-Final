@@ -15,10 +15,14 @@ public class Cuenta
 
     public Cuenta()
     {
+
+    }
+    /**public Cuenta()
+    {
         this.user = "";
         this.pass = "";
         this.pag = "";
-    }
+    }**/
 
     public Cuenta(String pUser, String pPass, String pPag)
     {
@@ -45,6 +49,14 @@ public class Cuenta
     public String getPass()
     {
         return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
     }
 
 }

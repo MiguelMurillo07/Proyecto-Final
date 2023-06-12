@@ -2,7 +2,6 @@ package vista;
 
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;

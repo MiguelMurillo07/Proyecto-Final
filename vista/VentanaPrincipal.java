@@ -6,6 +6,7 @@ import java.awt.Color;
 public class VentanaPrincipal extends JFrame
 {
     public VentanaAgregar miVentanaAgregar;
+    public VentanaModificar miVentanaModificar;
     public PanelVentanaPrincipal miPanelVentanaPrincipal;
     public PanelVentanaOpciones miPanelVentanaOpciones = null;
     public PanelVentanaAgregar miPanelVentanaAgregar = null;
@@ -50,5 +51,9 @@ public class VentanaPrincipal extends JFrame
     public void crearVentanaBorrar()
     {
         miPanelVentanaBorrar= new PanelVentanaBorrar();
+    }
+    public void crearVentanaModificar2()
+    {
+        miVentanaModificar = new VentanaModificar();
     }
 }
