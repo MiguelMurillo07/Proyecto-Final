@@ -29,13 +29,21 @@ public class Controlador implements ActionListener{
         
         String event = ae.getActionCommand();
 
-        if (event.equals("ingresar")) 
-        {
+        if (event.equals("ingresar")) {
+            String usuario = vP.miPanelVentanaPrincipal.getUsuario();
+            String contraseña = vP.miPanelVentanaPrincipal.getContraseña();
+
+        if (usuario.equals("UIS") && contraseña.equals("UIS2023")) {
             // Crea una nueva instancia de la ventana secundaria y la hace visible
             vP.crearVentanaOpciones();
             this.vP.miPanelVentanaOpciones.agregarOyentes(this);
             vP.setVisible(false);
+        } else {
+            
+            JOptionPane.showMessageDialog(null, "Usuario y/o Contraseña incorrectos, por favor vuelve a intentarlo.", null,1);
         }
+        }
+
 
         if (event.equals("agregar")) 
         {
@@ -45,16 +53,27 @@ public class Controlador implements ActionListener{
             vP.miPanelVentanaOpciones.setVisible(false);
         }
 
+        if (event.equals("borrarDatos"))
+        {
+            // crea una nueva de la ventana borrary la hace visible
+            vP.crearVentanaBorrar();
+            this.vP.miPanelVentanaBorrar.agregarOyentes(this);
+            vP.miPanelVentanaOpciones.setVisible(false);
+        }
+
+        if (event.equals("visualizar"))
+        {
+            //abre una nueva ventana visualizar
+            vP.crearVentanaVer();
+            this.vP.miPanelVentanaVer.agregarOyentes(this);
+            vP.miPanelVentanaOpciones.setVisible(false);
+        }
+
         if (event.equals("modificar"))
         {
             vP.crearVentanaModificar();
             this.vP.miPanelVentanaModificar.agregarOyentes(this);
             vP.miPanelVentanaOpciones.setVisible(false);
-        }
-
-        if (event.equals("ElegirOpcionModificar"))
-        {
-            vP.crearVentanaModificar2();
         }
 
         if (event.equals("RegresarDeAgregar"))
@@ -66,6 +85,18 @@ public class Controlador implements ActionListener{
         if (event.equals("RegresarModificar"))
         {
             vP.miPanelVentanaModificar.cerrarDialogoModificar();
+            vP.miPanelVentanaOpciones.setVisible(true);
+        }
+
+        if (event.equals("Regresardesegurodeborrar"))
+        {
+            vP.miPanelVentanaBorrar.cerrarDialogoBorrar();
+            vP.miPanelVentanaOpciones.setVisible(true);
+        }
+
+        if (event.equals("RegresarDeVer"))
+        {
+            vP.miPanelVentanaVer.cerrarDialogoVer();
             vP.miPanelVentanaOpciones.setVisible(true);
         }
 

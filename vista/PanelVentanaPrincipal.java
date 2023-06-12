@@ -133,6 +133,17 @@ public class PanelVentanaPrincipal extends JPanel {
         tfContraseña.setText("");
     }
 
+    public String getUsuario() 
+    {
+        return tfUsuario.getText();
+    }
+
+    public String getContraseña() 
+    {
+        return tfContraseña.getText();
+    }
+
+
     public void agregarOyentes(ActionListener listener) 
     {
         btIngresar.addActionListener(listener);

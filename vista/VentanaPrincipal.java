@@ -12,6 +12,7 @@ public class VentanaPrincipal extends JFrame
     public PanelVentanaAgregar miPanelVentanaAgregar = null;
     public PanelVentanaModificar miPanelVentanaModificar = null;
     public PanelVentanaBorrar miPanelVentanaBorrar = null;
+    public PanelVentanaVer miPanelVentanaVer = null;
 
     public VentanaPrincipal()
     {
@@ -52,8 +53,9 @@ public class VentanaPrincipal extends JFrame
     {
         miPanelVentanaBorrar= new PanelVentanaBorrar();
     }
-    public void crearVentanaModificar2()
+
+    public void crearVentanaVer()
     {
-        miVentanaModificar = new VentanaModificar();
+        miPanelVentanaVer = new PanelVentanaVer();
     }
 }

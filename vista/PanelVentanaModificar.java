@@ -35,39 +35,44 @@ public class PanelVentanaModificar extends JDialog{
  
         // agregar y crear jcombox
         cbOperadores = new JComboBox<>();
-        cbOperadores.setBounds(170, 280, 500, 40);
+        cbOperadores.setBounds(180, 280, 500, 40);
         this.add(cbOperadores);
 
         lbOperadores = new JLabel("Elija cual desea modificar: ");
-        lbOperadores.setBounds(170, 240, 500, 20);
-        lbOperadores.setFont(new Font("Arial", Font.BOLD, 25));
+        lbOperadores.setBounds(190, 225, 500, 20);
+        lbOperadores.setFont(new Font("Arial", Font.BOLD, 20));
         lbOperadores.setForeground(Color.BLACK);
         this.add(lbOperadores);
 
         lbAdm = new JLabel("Selecciona la credencial");
-        lbAdm.setBounds(230, 100, 680, 60);
+        lbAdm.setBounds(230, 80, 680, 60);
         lbAdm.setFont(new Font("Arial", Font.BOLD, 30));
         lbAdm.setForeground(new Color(0,0,0));
         this.add(lbAdm);
 
-        lbAdm2 = new JLabel("que desea modificar");
-        lbAdm2.setBounds(260, 130, 680, 60);
+        lbAdm2 = new JLabel("Que desea modificar");
+        lbAdm2.setBounds(260, 120, 680, 60);
         lbAdm2.setFont(new Font("Arial", Font.BOLD, 30));
         lbAdm2.setForeground(new Color(0,0,0));  
         this.add(lbAdm2);
 
         btElejir = new JButton("Elegir");
-        btElejir.setBounds(330, 510, 150, 40);
-        btElejir.setActionCommand("ElegirOpcionModificar");
+        btElejir.setBounds(330, 410, 150, 40);
+        btElejir.setActionCommand("Elegiropcion");
         this.add(btElejir);
 
         btRegresar = new JButton("Regresar");
-        btRegresar.setBounds(330, 575, 150, 40);
-        btRegresar.setActionCommand("RegresarModificar");
+        btRegresar.setBounds(330, 475, 150, 40);
+        btRegresar.setActionCommand("RegresarDeModificar");
         this.add(btRegresar);
 
+        iImagen = new ImageIcon(getClass().getResource("/vista/img 3.jpg"));
+        lbImagen = new JLabel(iImagen);
+        lbImagen.setBounds(10, 10, 770, 540);
+        this.add(lbImagen);
+
         this.setTitle("Modificar");
-        this.setSize(800,700);
+        this.setSize(800,600);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setVisible(true);

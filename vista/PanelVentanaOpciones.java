@@ -27,27 +27,27 @@ public class PanelVentanaOpciones extends JDialog
 
         // Crear y agregar botones
         btAgregar = new JButton("Agregar");
-        btAgregar.setBounds(330, 180, 130, 40);
+        btAgregar.setBounds(330, 160, 130, 40);
         btAgregar.setActionCommand("agregar");
         this.add(btAgregar);
 
         btModificar = new JButton("Modificar");
-        btModificar.setBounds(330, 260, 130, 40);
+        btModificar.setBounds(330, 240, 130, 40);
         btModificar.setActionCommand("modificar");
         this.add(btModificar);
 
         btBorrar = new JButton("Borrar");
-        btBorrar.setBounds(330, 340, 130, 40);
+        btBorrar.setBounds(330, 320, 130, 40);
         btBorrar.setActionCommand("borrarDatos");
         this.add(btBorrar);
 
         btVisualizar = new JButton("Visualizar");
-        btVisualizar.setBounds(330, 420, 130, 40);
+        btVisualizar.setBounds(330, 400, 130, 40);
         btVisualizar.setActionCommand("visualizar");
         this.add(btVisualizar);
 
         btSalir = new JButton("Salir");
-        btSalir.setBounds(345, 550, 100, 20);
+        btSalir.setBounds(345, 500, 100, 20);
         btSalir.setActionCommand("salir");
         this.add(btSalir);
 
@@ -58,8 +58,13 @@ public class PanelVentanaOpciones extends JDialog
         lbOpcion.setForeground(new Color(0,0,0));
         this.add(lbOpcion);
 
-        this.setTitle("Opciones");
-        this.setSize(800,700);
+        iImagen = new ImageIcon(getClass().getResource("/vista/posible img.jpg"));
+        lbImagen = new JLabel(iImagen);
+        lbImagen.setBounds(10, 5, 760, 550);
+        this.add(lbImagen);
+
+        this.setTitle("Opciones Disponibles");
+        this.setSize(800,600);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setVisible(true);

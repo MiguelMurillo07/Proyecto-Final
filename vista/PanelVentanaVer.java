@@ -5,14 +5,17 @@ import java.awt.Color;
 import javax.swing.border.TitledBorder;
 import javax.swing.BorderFactory;
 import java.awt.Graphics;
+import java.awt.event.ActionListener;
+
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 
-public class PanelVentanaVer extends JPanel 
+public class PanelVentanaVer extends JDialog
 {
     private JLabel lbImagen;
     private ImageIcon iImagen;
@@ -73,33 +76,22 @@ public class PanelVentanaVer extends JPanel
         add(tfContraseña);
          
         btRegresar = new JButton("Regresar");
-        btRegresar.setBounds(330, 550, 150, 40);
-        btRegresar.setActionCommand("Regresardever");
+        btRegresar.setBounds(330, 450, 150, 40);
+        btRegresar.setActionCommand("RegresarDeVer");
         this.add(btRegresar);
 
-        // Borde
-        TitledBorder borde = BorderFactory.createTitledBorder("Ventana ver");
-        borde.setTitleColor(Color.BLACK);
-        setBorder(borde);
-    }
+        iImagen = new ImageIcon(getClass().getResource("/vista/img 4.jpg"));
+        lbImagen = new JLabel(iImagen);
+        lbImagen.setBounds(10, 10, 770, 540);
+        this.add(lbImagen);
 
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        
-        int width = getWidth();
-        int height = getHeight();
-    
-        // Dibujar la figura diagonal
-        g.setColor(Color.decode("#009933"));
-        g.fillRect(0, 0, width, height); 
-        
-        // Cambiar el color de la parte inferior
-        g.setColor(Color.decode("#003b00"));
-        int[] xPoints = {0, width, 0};
-        int[] yPoints = {0, height, height };
-        g.fillPolygon(xPoints, yPoints, 3);        
+        this.setTitle("Visualizar");
+        this.setSize(800,600);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setVisible(true);
+
     }
-    
 
     public JButton getBtRegresar() {
         return btRegresar;
@@ -132,7 +124,14 @@ public class PanelVentanaVer extends JPanel
     public void setTfContraseña(JTextField tfContraseña) {
         this.tfContraseña = tfContraseña;
     }
+
+    public void agregarOyentes(ActionListener pAL)
+    {
+        btRegresar.addActionListener(pAL);
+    }
+    
+    public void cerrarDialogoVer()
+    {
+        this.dispose();
+    }
 }
-
-
-
