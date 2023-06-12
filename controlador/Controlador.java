@@ -5,11 +5,8 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import javax.swing.JOptionPane;
-import vista.VentanaOpciones;
 import vista.VentanaPrincipal;
-import vista.VentanaModificar;
 import modelo.Cuenta;
 
 public class Controlador implements ActionListener{
@@ -33,7 +30,7 @@ public class Controlador implements ActionListener{
             String usuario = vP.miPanelVentanaPrincipal.getUsuario();
             String contraseña = vP.miPanelVentanaPrincipal.getContraseña();
 
-        if (usuario.equals("UIS") && contraseña.equals("UIS2023")) {
+        if (usuario.equals("") && contraseña.equals("")) {
             // Crea una nueva instancia de la ventana secundaria y la hace visible
             vP.crearVentanaOpciones();
             this.vP.miPanelVentanaOpciones.agregarOyentes(this);
@@ -74,6 +71,12 @@ public class Controlador implements ActionListener{
             vP.crearVentanaModificar();
             this.vP.miPanelVentanaModificar.agregarOyentes(this);
             vP.miPanelVentanaOpciones.setVisible(false);
+        }
+
+        if (event.equals("Elegiropcion"))
+        {
+            vP.miPanelVentanaModificar.establecerCampos();
+            JOptionPane.showMessageDialog(null, "accion "+vP.miPanelVentanaModificar.getOpcionSeleccionada());
         }
 
         if (event.equals("RegresarDeAgregar"))
@@ -122,12 +125,11 @@ public class Controlador implements ActionListener{
         {
             try {
                 Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto", "root", "");
-                PreparedStatement pst = cn.prepareStatement("insert into datos values (?,?,?,?)");
+                PreparedStatement pst = cn.prepareStatement("insert into datos values (?,?,?)");
 
-                pst.setString(1, "0");
-                pst.setString(2, vP.miPanelVentanaAgregar.getPagina().trim());
-                pst.setString(3, vP.miPanelVentanaAgregar.getUsuario().trim());
-                pst.setString(4, vP.miPanelVentanaAgregar.getContraseña().trim());
+                pst.setString(1, vP.miPanelVentanaAgregar.getPagina().trim());
+                pst.setString(2, vP.miPanelVentanaAgregar.getUsuario().trim());
+                pst.setString(3, vP.miPanelVentanaAgregar.getContraseña().trim());
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(vP, "Registro exitoso ", "Realizado", 2);
                 vP.miPanelVentanaAgregar.borrar();
@@ -139,31 +141,15 @@ public class Controlador implements ActionListener{
             }
         }
 
-        if (event.equals("guardarcredencialModificada"))
+        if (event.equals("aplicarModificar"))
         {
-            String pagina = vP.miVentanaModificar.getPagina();
-            String usuario = vP.miVentanaModificar.getUsuario();
-            String contraseña = vP.miVentanaModificar.getContraseña();
+            /**String pagina = vP.miPanelVentanaModificar.getPagina();
+            String usuario = vP.miPanelVentanaModificar.getUsuario();
+            String contraseña = vP.miPanelVentanaModificar.getContraseña();
+            String opcion = vP.miPanelVentanaModificar.getOpcionSeleccionada();**/
 
             // Actualizar los datos en la base de datos
-            try {
-                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto", "root", "");
-                PreparedStatement pst = cn.prepareStatement("UPDATE datos SET usuario = ?, contraseña = ? WHERE pagina = ?");
-                pst.setString(1, usuario);
-                pst.setString(2, contraseña);
-                pst.setString(3, pagina);
-                int rowsAffected = pst.executeUpdate();
-
-                if (rowsAffected > 0) {
-                    // Mostrar mensaje de éxito
-                    System.out.println("Los datos se han actualizado correctamente.");
-                }
-
-                pst.close();
-                cn.close();
-            } catch (Exception ex) {
-                // Manejar cualquier excepción que pueda ocurrir
-            }
+            vP.miPanelVentanaModificar.actualizarDatos();
         }
 
 

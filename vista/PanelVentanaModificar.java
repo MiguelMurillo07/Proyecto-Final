@@ -4,6 +4,9 @@ import java.awt.Color;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 import java.sql.Connection;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -20,7 +23,8 @@ public class PanelVentanaModificar extends JDialog{
     private JComboBox<String> cbOperadores;
     private JLabel lbOperadores,lbAdm,lbAdm2,lbImagen;
     private ImageIcon iImagen;
-    private JButton btElejir,btRegresar;
+    private JButton btElejir,btRegresar, btModificar;
+    private JTextField tfuser, tfpagina, tfContraseña;
 
     public PanelVentanaModificar()
     {
@@ -66,10 +70,27 @@ public class PanelVentanaModificar extends JDialog{
         btRegresar.setActionCommand("RegresarDeModificar");
         this.add(btRegresar);
 
+        btModificar = new JButton("Modificar");
+        btModificar.setBounds(500, 475, 150, 40);
+        btModificar.setActionCommand("aplicarModificar");
+        this.add(btModificar);
+
         iImagen = new ImageIcon(getClass().getResource("/vista/img 3.jpg"));
         lbImagen = new JLabel(iImagen);
         lbImagen.setBounds(10, 10, 770, 540);
         this.add(lbImagen);
+
+        tfuser = new JTextField(null);
+        tfuser.setBounds(20, 400, 250, 30);
+        add(tfuser);
+
+        tfpagina = new JTextField(null);
+        tfpagina.setBounds(20, 450, 250, 30);
+        add(tfpagina);
+
+        tfContraseña = new JTextField(null);
+        tfContraseña.setBounds(20, 500, 250, 30);
+        add(tfContraseña);
 
         this.setTitle("Modificar");
         this.setSize(800,600);
@@ -81,10 +102,41 @@ public class PanelVentanaModificar extends JDialog{
 
     }
 
+    public void setPagina(String pagina)
+    {
+        tfpagina.setText(pagina);
+    }
+
+    public void setUsuario(String usuario)
+    {
+        tfuser.setText(usuario);
+    }
+
+    public void setContraseña(String contraseña)
+    {
+        tfContraseña.setText(contraseña);
+    }
+
+    public String getPagina()
+    {
+        return tfpagina.getText();
+    }
+    
+    public String getUsuario()
+    {
+        return tfuser.getText();
+    }
+    
+    public String getContraseña()
+    {
+        return tfContraseña.getText();
+    }
+
     public void agregarOyentes(ActionListener pAL)
     {
         btRegresar.addActionListener(pAL);
         btElejir.addActionListener(pAL);
+        btModificar.addActionListener(pAL);
     }
     
     public void cerrarDialogoModificar() {
@@ -115,5 +167,49 @@ public class PanelVentanaModificar extends JDialog{
     
     public String getOpcionSeleccionada() {
         return (String) cbOperadores.getSelectedItem();
+    }
+
+    public void establecerCampos()
+    {
+        try {
+                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto", "root", "");
+                PreparedStatement pst = cn.prepareStatement("SELECT * FROM datos where pagina = ?");
+                pst.setString(1, getOpcionSeleccionada());
+
+                ResultSet rs = pst.executeQuery();
+                if (rs.next())
+                {
+                    tfuser.setText(rs.getString("user"));
+                    tfpagina.setText(rs.getString("pagina"));
+                    tfContraseña.setText(rs.getString("password"));
+                }
+                else 
+                {
+                    JOptionPane.showMessageDialog(null, "NO se encontro el registro");
+                }
+            }
+            catch (Exception e)
+            {
+                JOptionPane.showMessageDialog(null, "err");
+            }
+    }
+    public void actualizarDatos() {
+        String opcion = getOpcionSeleccionada();
+        try {
+                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto", "root", "");
+                PreparedStatement pst = cn.prepareStatement("update datos set user = ?, password = ?  where pagina ="+opcion);
+
+                //pst.setString(1, getPagina().trim());
+                pst.setString(1 , getUsuario().trim());
+                pst.setString(2, getContraseña().trim());
+                pst.executeUpdate();
+
+                JOptionPane.showMessageDialog(null, "actualizo");
+
+            } catch (Exception ex) {
+                // Manejar cualquier excepción que pueda ocurrir
+                JOptionPane.showMessageDialog(null, "NO se actualizo "+ opcion);
+            }
+        
     }
 }
