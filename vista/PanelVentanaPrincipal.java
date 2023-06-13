@@ -32,7 +32,7 @@ public class PanelVentanaPrincipal extends JPanel {
     public PanelVentanaPrincipal() {
 
         setLayout(null);
-        setBackground(Color.decode("#003b00"));
+        setBackground(Color.decode("#B233FF"));
 
         // Creación y adición de la imagen al panel
         iImagen = new ImageIcon(getClass().getResource("/vista/uis.png"));
@@ -44,7 +44,7 @@ public class PanelVentanaPrincipal extends JPanel {
         lbIUsuario = new JLabel("Usuario");
         lbIUsuario.setBounds(370, 350, 180, 60);
         lbIUsuario.setFont(new Font("Arial", Font.BOLD, 20));
-        lbIUsuario.setForeground(Color.BLACK);
+        lbIUsuario.setForeground(Color.WHITE);
         this.add(lbIUsuario);
 
         tfUsuario = new JTextField();
@@ -55,7 +55,7 @@ public class PanelVentanaPrincipal extends JPanel {
         lbContraseña = new JLabel("Contraseña");
         lbContraseña.setBounds(350, 430, 180, 60);
         lbContraseña.setFont(new Font("Arial", Font.BOLD, 20));
-        lbContraseña.setForeground(Color.BLACK);
+        lbContraseña.setForeground(Color.WHITE);
         this.add(lbContraseña);
         
         tfContraseña = new JPasswordField();
@@ -63,8 +63,8 @@ public class PanelVentanaPrincipal extends JPanel {
         this.add(tfContraseña);
 
         lbWelcome = new JLabel("Bienvenido");
-        lbWelcome.setBounds(335, 220, 180, 60);
-        lbWelcome.setFont(new Font("Arial", Font.BOLD, 25));
+        lbWelcome.setBounds(325, 220, 180, 60);
+        lbWelcome.setFont(new Font("Arial", Font.BOLD, 30));
         lbWelcome.setForeground(new Color(255,0,0));
         this.add(lbWelcome);
 
@@ -77,13 +77,13 @@ public class PanelVentanaPrincipal extends JPanel {
         lbAdm = new JLabel("Administración de Credenciales");
         lbAdm.setBounds(180, 100, 680, 60);
         lbAdm.setFont(new Font("Arial", Font.BOLD, 30));
-        lbAdm.setForeground(new Color(0,0,0));
+        lbAdm.setForeground(new Color(255,255,255));
         this.add(lbAdm);
 
         lbAdm2 = new JLabel("para Páginas Web");
-        lbAdm2.setBounds(280, 130, 680, 60);
+        lbAdm2.setBounds(280, 135, 680, 60);
         lbAdm2.setFont(new Font("Arial", Font.BOLD, 30));
-        lbAdm2.setForeground(new Color(0,0,0));  
+        lbAdm2.setForeground(new Color(255,255,255));  
         this.add(lbAdm2);
 
         btSalir = new JButton("Salir");
@@ -101,6 +101,11 @@ public class PanelVentanaPrincipal extends JPanel {
         btBorrar.setActionCommand("borrar");
         this.add(btBorrar);
 
+        iImagen = new ImageIcon(getClass().getResource("/vista/venprin.PNG"));
+        lbImagen = new JLabel(iImagen);
+        lbImagen.setBounds(10, 15, 763, 630);
+        this.add(lbImagen);
+
         // Borde
         TitledBorder borde = BorderFactory.createTitledBorder("Bienvenido");
         borde.setTitleColor(Color.BLACK);
@@ -109,7 +114,7 @@ public class PanelVentanaPrincipal extends JPanel {
     }
 
      // pintar panel
-     protected void paintComponent(Graphics g) {
+    /*protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         
         int width = getWidth();
@@ -124,7 +129,7 @@ public class PanelVentanaPrincipal extends JPanel {
         int[] xPoints = {0, width, 0};
         int[] yPoints = {0, height, height };
         g.fillPolygon(xPoints, yPoints, 3);        
-    }
+    }/* */
     
 
     public void borrar()

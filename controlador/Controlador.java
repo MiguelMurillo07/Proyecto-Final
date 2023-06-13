@@ -27,13 +27,16 @@ public class Controlador implements ActionListener{
             String usuario = vP.miPanelVentanaPrincipal.getUsuario();
             String contraseña = vP.miPanelVentanaPrincipal.getContraseña();
 
-        if (usuario.equals("") && contraseña.equals("")) {
+        if (usuario.equals("UIS") && contraseña.equals("UIS2023")) {
             // Crea una nueva instancia de la ventana secundaria y la hace visible
             vP.crearVentanaOpciones();
             this.vP.miPanelVentanaOpciones.agregarOyentes(this);
             vP.setVisible(false);
-        } else {
+        } else if(usuario.equals("")&& contraseña.equals("")){
             
+            JOptionPane.showMessageDialog(null, "Por favor digita tus credenciales para acceder al programa.", null,1);
+        }
+        else{
             JOptionPane.showMessageDialog(null, "Usuario y/o Contraseña incorrectos, por favor vuelve a intentarlo.", null,1);
         }
         }
