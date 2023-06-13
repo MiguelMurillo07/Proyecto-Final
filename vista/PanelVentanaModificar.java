@@ -6,12 +6,10 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-
 import java.sql.Connection;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -21,9 +19,9 @@ import java.sql.ResultSet;
 public class PanelVentanaModificar extends JDialog{
 
     private JComboBox<String> cbOperadores;
-    private JLabel lbOperadores,lbAdm,lbAdm2,lbImagen;
+    private JLabel lbAdm,lbAdm2,lbImagen,lbPagina,lbUsuario,lbContraseña;
     private ImageIcon iImagen;
-    private JButton btElejir,btRegresar, btModificar, btBorrar;
+    private JButton btElejir,btRegresar, btModificar;
     private JTextField tfuser, tfpagina, tfContraseña;
 
     public PanelVentanaModificar()
@@ -39,30 +37,25 @@ public class PanelVentanaModificar extends JDialog{
  
         // agregar y crear jcombox
         cbOperadores = new JComboBox<>();
-        cbOperadores.setBounds(180, 280, 500, 40);
+        cbOperadores.setBounds(180, 120, 500, 40);
         this.add(cbOperadores);
-
-        lbOperadores = new JLabel("Elija cual desea modificar: ");
-        lbOperadores.setBounds(190, 225, 500, 20);
-        lbOperadores.setFont(new Font("Arial", Font.BOLD, 20));
-        lbOperadores.setForeground(Color.BLACK);
-        this.add(lbOperadores);
+        cargarDatosEnComboBox("pagina");
 
         lbAdm = new JLabel("Selecciona la credencial");
-        lbAdm.setBounds(230, 80, 680, 60);
+        lbAdm.setBounds(230, 20, 680, 60);
         lbAdm.setFont(new Font("Arial", Font.BOLD, 30));
         lbAdm.setForeground(new Color(0,0,0));
         this.add(lbAdm);
 
-        lbAdm2 = new JLabel("Que desea modificar");
-        lbAdm2.setBounds(260, 120, 680, 60);
+        lbAdm2 = new JLabel("que desea modificar");
+        lbAdm2.setBounds(260, 60, 680, 60);
         lbAdm2.setFont(new Font("Arial", Font.BOLD, 30));
         lbAdm2.setForeground(new Color(0,0,0));  
         this.add(lbAdm2);
 
         btElejir = new JButton("Elegir");
-        btElejir.setBounds(330, 410, 150, 40);
-        btElejir.setActionCommand("Elegiropcion");
+        btElejir.setBounds(330, 170, 150, 40);
+        btElejir.setActionCommand("ElegirOpcionModificar");
         this.add(btElejir);
 
         btRegresar = new JButton("Regresar");
@@ -71,39 +64,55 @@ public class PanelVentanaModificar extends JDialog{
         this.add(btRegresar);
 
         btModificar = new JButton("Modificar");
-        btModificar.setBounds(500, 475, 150, 40);
-        btModificar.setActionCommand("aplicarModificar");
+        btModificar.setBounds(330, 420, 150, 40);
+        btModificar.setActionCommand("AplicarModificacion");
         this.add(btModificar);
 
-        btBorrar = new JButton("Borrar");
-        btBorrar.setBounds(500, 410, 150, 40);
-        btBorrar.setActionCommand("borrarPagina");
-        this.add(btBorrar);
+        lbPagina = new JLabel("Nombre de la pagina o aplicación:");
+        lbPagina.setBounds(100,300,300,30);
+        lbPagina.setFont(new Font("Arial", Font.BOLD, 17));
+        lbPagina.setForeground(Color.BLACK);
+        add(lbPagina);
 
-        iImagen = new ImageIcon(getClass().getResource("/vista/img 3.jpg"));
+        tfpagina = new JTextField(null);
+        tfpagina.setBounds(370, 300, 250, 30);
+        tfpagina.setFont(new Font ("Arial",Font.BOLD,15));
+        add(tfpagina);
+        tfpagina.setEnabled(false);
+
+        lbUsuario = new JLabel("Usuario:");
+        lbUsuario.setBounds(200,340,300,30);
+        lbUsuario.setFont(new Font("Arial", Font.BOLD, 17));
+        lbUsuario.setForeground(Color.BLACK);
+        add(lbUsuario);
+
+        tfuser = new JTextField(null);
+        tfuser.setBounds(370, 340, 250, 30);
+        tfuser.setFont(new Font ("Arial",Font.BOLD,15));
+        add(tfuser);
+        tfuser.setEnabled(false);
+
+        lbContraseña = new JLabel("Contraseña:");
+        lbContraseña.setBounds(200,380,300,30);
+        lbContraseña.setFont(new Font("Arial", Font.BOLD, 17));
+        lbContraseña.setForeground(Color.BLACK);
+        add(lbContraseña);
+
+        tfContraseña = new JTextField(null);
+        tfContraseña.setBounds(370, 380, 250, 30);
+        tfContraseña.setFont(new Font ("Arial",Font.BOLD,15));
+        add(tfContraseña);
+        tfContraseña.setEnabled(false);
+        iImagen = new ImageIcon(getClass().getResource("/vista/img 4.jpg"));
         lbImagen = new JLabel(iImagen);
         lbImagen.setBounds(10, 10, 770, 540);
         this.add(lbImagen);
-
-        tfpagina = new JTextField(null);
-        tfpagina.setBounds(20, 400, 250, 30);
-        add(tfpagina);
-
-        tfuser = new JTextField(null);
-        tfuser.setBounds(20, 450, 250, 30);
-        add(tfuser);
-
-        tfContraseña = new JTextField(null);
-        tfContraseña.setBounds(20, 500, 250, 30);
-        add(tfContraseña);
 
         this.setTitle("Modificar");
         this.setSize(800,600);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setVisible(true);
-
-        cargarDatosEnComboBox("pagina");
 
     }
 
@@ -142,7 +151,6 @@ public class PanelVentanaModificar extends JDialog{
         btRegresar.addActionListener(pAL);
         btElejir.addActionListener(pAL);
         btModificar.addActionListener(pAL);
-        btBorrar.addActionListener(pAL);
     }
     
     public void cerrarDialogoModificar() {
@@ -151,14 +159,16 @@ public class PanelVentanaModificar extends JDialog{
     }  
 
     public void cargarDatosEnComboBox(String nombreColumna) {
-        cbOperadores.removeAllItems(); // Limpiar los elementos existentes en el JComboBox
+        cbOperadores.removeAllItems();
 
-        try {
+        try 
+        {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto", "root", "");
             PreparedStatement pst = cn.prepareStatement("SELECT " + nombreColumna + " FROM datos");
             ResultSet rs = pst.executeQuery();
 
-            while (rs.next()) {
+            while (rs.next()) 
+            {
                 String valor = rs.getString(nombreColumna);
                 cbOperadores.addItem(valor);
             }
@@ -166,8 +176,11 @@ public class PanelVentanaModificar extends JDialog{
             rs.close();
             pst.close();
             cn.close();
-        } catch (Exception e) {
-            // Manejar cualquier excepción que pueda ocurrir
+
+        } 
+        catch (Exception e) 
+        {
+            JOptionPane.showMessageDialog(null, "No se cargaron los registros "+e.getMessage());
         }
     }
     
@@ -177,7 +190,11 @@ public class PanelVentanaModificar extends JDialog{
 
     public void establecerCampos()
     {
-        try {
+        tfpagina.setEnabled(true);
+        tfuser.setEnabled(true);
+        tfContraseña.setEnabled(true);
+        try 
+        {
                 Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto", "root", "");
                 PreparedStatement pst = cn.prepareStatement("SELECT * FROM datos where pagina = ?");
                 pst.setString(1, getOpcionSeleccionada());
@@ -191,14 +208,15 @@ public class PanelVentanaModificar extends JDialog{
                 }
                 else 
                 {
-                    JOptionPane.showMessageDialog(null, "NO se encontro el registro");
+                    JOptionPane.showMessageDialog(null, "No se encontro el registro");
                 }
             }
             catch (Exception e)
             {
-                JOptionPane.showMessageDialog(null, "err");
+                JOptionPane.showMessageDialog(null, "Error al consultar "+ e.getMessage());
             }
     }
+
     public void actualizarDatos() {
         String opcion = getOpcionSeleccionada();
         
@@ -210,35 +228,18 @@ public class PanelVentanaModificar extends JDialog{
                 pst.setString(2, getUsuario().trim());
                 pst.setString(3, getContraseña().trim());
                 pst.executeUpdate();
+                setPagina("");
+                setUsuario("");
+                setContraseña("");
                 cn.close();
                 cargarDatosEnComboBox("pagina");
 
-                JOptionPane.showMessageDialog(null, "actualizo");
+                JOptionPane.showMessageDialog(null, "Credencial actualizada");
 
-            } catch (Exception ex) {
-                // Manejar cualquier excepción que pueda ocurrir
-                JOptionPane.showMessageDialog(null, "NO se actualizo "+ opcion + " "+ex.getMessage());
-            }
-        
-    }
-
-    public void borrarDatos() {
-        String opcion = getOpcionSeleccionada();
-        
-        try {
-                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto", "root", "");
-                PreparedStatement pst = cn.prepareStatement("DELETE FROM datos WHERE pagina = ? ");
-                
-                pst.setString(1, getPagina().trim());
-                pst.executeUpdate();
-                cn.close();
-                cargarDatosEnComboBox("pagina");
-
-                JOptionPane.showMessageDialog(null, "borrado");
-
-            } catch (Exception ex) {
-                // Manejar cualquier excepción que pueda ocurrir
-                JOptionPane.showMessageDialog(null, "NO se borro "+ opcion + " "+ex.getMessage());
+            } 
+            catch (Exception ex) 
+            {
+                JOptionPane.showMessageDialog(null, "No se actualizo la credencial"+ opcion + " "+ex.getMessage());
             }
         
     }

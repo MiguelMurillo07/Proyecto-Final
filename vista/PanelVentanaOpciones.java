@@ -28,22 +28,22 @@ public class PanelVentanaOpciones extends JDialog
         // Crear y agregar botones
         btAgregar = new JButton("Agregar");
         btAgregar.setBounds(330, 160, 130, 40);
-        btAgregar.setActionCommand("agregar");
+        btAgregar.setActionCommand("Agregar");
         this.add(btAgregar);
 
         btModificar = new JButton("Modificar");
         btModificar.setBounds(330, 240, 130, 40);
-        btModificar.setActionCommand("modificar");
+        btModificar.setActionCommand("Modificar");
         this.add(btModificar);
 
         btBorrar = new JButton("Borrar");
         btBorrar.setBounds(330, 320, 130, 40);
-        btBorrar.setActionCommand("borrarDatos");
+        btBorrar.setActionCommand("Borrar");
         this.add(btBorrar);
 
         btVisualizar = new JButton("Visualizar");
         btVisualizar.setBounds(330, 400, 130, 40);
-        btVisualizar.setActionCommand("visualizar");
+        btVisualizar.setActionCommand("Visualizar");
         this.add(btVisualizar);
 
         btSalir = new JButton("Salir");

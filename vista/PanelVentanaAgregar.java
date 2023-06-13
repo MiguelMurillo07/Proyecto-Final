@@ -2,7 +2,12 @@ package vista;
 
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -39,6 +44,7 @@ public class PanelVentanaAgregar extends JDialog
         lbPagina.setFont(new Font("Arial", Font.BOLD, 17));
         lbPagina.setForeground(Color.BLACK);
         add(lbPagina);
+        
         tfPagina = new JTextField(null);
         tfPagina.setBounds(280, 180, 250, 30);
         add(tfPagina);
@@ -48,6 +54,7 @@ public class PanelVentanaAgregar extends JDialog
         lbUsuario.setFont(new Font("Arial", Font.BOLD, 17));
         lbUsuario.setForeground(Color.BLACK);
         add(lbUsuario);
+        
         tfUsuario = new JTextField(null);
         tfUsuario.setBounds(280, 270, 250, 30);
         add(tfUsuario);
@@ -57,13 +64,14 @@ public class PanelVentanaAgregar extends JDialog
         lbContraseña.setFont(new Font("Arial", Font.BOLD, 17));
         lbContraseña.setForeground(Color.BLACK);
         add(lbContraseña);
+
         tfContraseña = new JTextField(null);
         tfContraseña.setBounds(280, 360, 250, 30);
         add(tfContraseña);
         
         btGuardar = new JButton("Guardar");
         btGuardar.setBounds(330, 415, 150, 30);
-        btGuardar.setActionCommand("guardarcredencial");
+        btGuardar.setActionCommand("AgregarCredencial");
         this.add(btGuardar);
         
         btRegresar = new JButton("Regresar");
@@ -111,6 +119,28 @@ public class PanelVentanaAgregar extends JDialog
     public void setContraseña(String contraseña)
     {
         tfContraseña.setText(contraseña);
+    }
+
+    public void agregarCredencial()
+    {
+        try 
+        {
+
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto", "root", "");
+            PreparedStatement pst = cn.prepareStatement("insert into datos values (?,?,?)");
+
+            pst.setString(1, getPagina().trim());
+            pst.setString(2, getUsuario().trim());
+            pst.setString(3, getContraseña().trim());
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Registro exitoso ", "Realizado", 2);
+            borrar();
+
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null, "Error al agregar "+e.getMessage());
+        }
     }
 
     public void borrar()
