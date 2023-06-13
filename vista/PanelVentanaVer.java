@@ -1,12 +1,7 @@
 package vista;
 
-import javax.swing.JPanel;
 import java.awt.Color;
-import javax.swing.border.TitledBorder;
-import javax.swing.BorderFactory;
-import java.awt.Graphics;
 import java.awt.event.ActionListener;
-
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;

@@ -23,7 +23,7 @@ public class PanelVentanaModificar extends JDialog{
     private JComboBox<String> cbOperadores;
     private JLabel lbOperadores,lbAdm,lbAdm2,lbImagen;
     private ImageIcon iImagen;
-    private JButton btElejir,btRegresar, btModificar;
+    private JButton btElejir,btRegresar, btModificar, btBorrar;
     private JTextField tfuser, tfpagina, tfContraseña;
 
     public PanelVentanaModificar()
@@ -75,18 +75,23 @@ public class PanelVentanaModificar extends JDialog{
         btModificar.setActionCommand("aplicarModificar");
         this.add(btModificar);
 
+        btBorrar = new JButton("Borrar");
+        btBorrar.setBounds(500, 410, 150, 40);
+        btBorrar.setActionCommand("borrarPagina");
+        this.add(btBorrar);
+
         iImagen = new ImageIcon(getClass().getResource("/vista/img 3.jpg"));
         lbImagen = new JLabel(iImagen);
         lbImagen.setBounds(10, 10, 770, 540);
         this.add(lbImagen);
 
-        tfuser = new JTextField(null);
-        tfuser.setBounds(20, 400, 250, 30);
-        add(tfuser);
-
         tfpagina = new JTextField(null);
-        tfpagina.setBounds(20, 450, 250, 30);
+        tfpagina.setBounds(20, 400, 250, 30);
         add(tfpagina);
+
+        tfuser = new JTextField(null);
+        tfuser.setBounds(20, 450, 250, 30);
+        add(tfuser);
 
         tfContraseña = new JTextField(null);
         tfContraseña.setBounds(20, 500, 250, 30);
@@ -137,6 +142,7 @@ public class PanelVentanaModificar extends JDialog{
         btRegresar.addActionListener(pAL);
         btElejir.addActionListener(pAL);
         btModificar.addActionListener(pAL);
+        btBorrar.addActionListener(pAL);
     }
     
     public void cerrarDialogoModificar() {
@@ -179,8 +185,8 @@ public class PanelVentanaModificar extends JDialog{
                 ResultSet rs = pst.executeQuery();
                 if (rs.next())
                 {
-                    tfuser.setText(rs.getString("user"));
                     tfpagina.setText(rs.getString("pagina"));
+                    tfuser.setText(rs.getString("user"));
                     tfContraseña.setText(rs.getString("password"));
                 }
                 else 
@@ -195,20 +201,44 @@ public class PanelVentanaModificar extends JDialog{
     }
     public void actualizarDatos() {
         String opcion = getOpcionSeleccionada();
+        
         try {
                 Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto", "root", "");
-                PreparedStatement pst = cn.prepareStatement("update datos set user = ?, password = ?  where pagina ="+opcion);
-
-                //pst.setString(1, getPagina().trim());
-                pst.setString(1 , getUsuario().trim());
-                pst.setString(2, getContraseña().trim());
+                PreparedStatement pst = cn.prepareStatement("UPDATE datos SET pagina = ?, user = ?, password = ? WHERE pagina = '"+opcion+"'");
+                
+                pst.setString(1, getPagina().trim());
+                pst.setString(2, getUsuario().trim());
+                pst.setString(3, getContraseña().trim());
                 pst.executeUpdate();
+                cn.close();
+                cargarDatosEnComboBox("pagina");
 
                 JOptionPane.showMessageDialog(null, "actualizo");
 
             } catch (Exception ex) {
                 // Manejar cualquier excepción que pueda ocurrir
-                JOptionPane.showMessageDialog(null, "NO se actualizo "+ opcion);
+                JOptionPane.showMessageDialog(null, "NO se actualizo "+ opcion + " "+ex.getMessage());
+            }
+        
+    }
+
+    public void borrarDatos() {
+        String opcion = getOpcionSeleccionada();
+        
+        try {
+                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto", "root", "");
+                PreparedStatement pst = cn.prepareStatement("DELETE FROM datos WHERE pagina = ? ");
+                
+                pst.setString(1, getPagina().trim());
+                pst.executeUpdate();
+                cn.close();
+                cargarDatosEnComboBox("pagina");
+
+                JOptionPane.showMessageDialog(null, "borrado");
+
+            } catch (Exception ex) {
+                // Manejar cualquier excepción que pueda ocurrir
+                JOptionPane.showMessageDialog(null, "NO se borro "+ opcion + " "+ex.getMessage());
             }
         
     }

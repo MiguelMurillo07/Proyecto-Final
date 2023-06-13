@@ -143,13 +143,12 @@ public class Controlador implements ActionListener{
 
         if (event.equals("aplicarModificar"))
         {
-            /**String pagina = vP.miPanelVentanaModificar.getPagina();
-            String usuario = vP.miPanelVentanaModificar.getUsuario();
-            String contraseña = vP.miPanelVentanaModificar.getContraseña();
-            String opcion = vP.miPanelVentanaModificar.getOpcionSeleccionada();**/
-
-            // Actualizar los datos en la base de datos
             vP.miPanelVentanaModificar.actualizarDatos();
+        }
+
+        if (event.equals("borrarPagina"))
+        {
+            vP.miPanelVentanaModificar.borrarDatos();
         }
 
 
